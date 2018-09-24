@@ -1,0 +1,26 @@
+{
+  "name": "singlepage-js",
+  "version": "0.1.0",
+  "description": "A portal framework for developing single page Web applications",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdabke/singlepage-js.git"
+  },
+  "keywords": [
+    "portal",
+    "framework",
+    "vue",
+    "vue.js",
+    "node.js"
+  ],
+  "author": "Padmanabh Dabke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pdabke/singlepage-js/issues"
+  },
+  "homepage": "https://github.com/pdabke/singlepage-js#readme"
+}
