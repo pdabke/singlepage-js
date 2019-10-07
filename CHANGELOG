@@ -1,0 +1,22 @@
+Release 0.1.0
+- Placeholder release
+
+Release 0.2.0 - First functional release that focuses on core portal framework and user-less applications
+
+Singlepage CLI
+- Create minimal or full app boilerplate
+- Development support via "singlepage serve" that serves from memory and uses livereload 
+- Build app for deployment
+
+Singlepage Portal Framework
+- Drag-n-drop portal editing via admin login
+- Vue component property editor form created from props definition
+- Support for custom component commands and property editor
+- Customization of portal window look & feel by assigning custom classes to window, title, or body area
+- Message customization via your own messages file
+- Portal messages internationalized to English and Marathi
+- App-specific services development (just place *Service.js files in services directory)
+- Component-specific internationalization
+- Built-in page grid layouts with the ability to define your own
+- Role based access control for services
+- Default implmentation of core services that do not have any external dependencies

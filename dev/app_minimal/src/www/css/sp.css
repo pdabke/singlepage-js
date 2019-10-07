@@ -1,0 +1,316 @@
+/**
+ * Copyright 2019 Padmanabh Dabke. All Rights Reserved.
+ *
+ * Distributed under MIT license
+ * https://opensource.org/licenses/MIT
+ * 
+ */
+
+/* Remove blue outline in Chrome */
+button:focus, a:focus {outline:0;}
+
+/* For file inputs, we prefer the regular css to style it instead of custom bootstrap since that requires
+additional javascript to see the file name. The following style makes it look a little nicer on new
+browsers. */
+.sp-file-form-control {
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 5px;
+}
+  /* Bootstrap overrides */
+.navbar, footer {
+  z-index: 990;
+}
+
+/* Good way of centering content both horizontally and vertically */
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
+/* Sizing of material icons */
+.material-icons.md-12 { font-size: 12px; }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-64 { font-size: 64px; }
+
+/*
+Styling of Terms of Use IFrame
+*/
+.sp-tou {
+  margin: 40px auto 20px auto;
+  height: 400px;
+  display: block;
+  padding: 5px;
+  border: 1px solid #e6e6e6;
+}
+
+/* Sticky footer styles. Makes sure the footer sticks to the bottom when the page content height is small. */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  margin-top: 25px;
+}
+
+body {
+  margin-bottom: 70px;
+}
+/* End Sticky footer styles */
+
+/* Used to specify unstyled component body, header, etc. */
+.sp-blank {
+  position: relative;
+}
+
+/* Responsive text for splash/landing pages */
+.sp-display-4 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.sp-lead {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+@media (min-width: 576px) {
+  .sp-display-4 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .sp-lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+}
+
+/* When a page has a single column, it looks odd if it spans the entire width on big screen. The
+following styles limit the display width.
+*/
+
+.sp-one-column-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+@media (min-width: 768px) {
+  .sp-one-column-container {
+    max-width: 800px;
+  }
+}
+
+/*
+ Pages that occupy the entire viewport (e.g. splash page, login/logout etc.
+ */
+.sp-splash {
+  /*
+  background: transparent radial-gradient(circle farthest-side at right bottom,#ce5000 5%,#e36400 25%,#e36400 80%,#d25200 98%,#d05000) repeat scroll 0 0;
+  background: transparent radial-gradient(circle farthest-side at right bottom,#ce5000 5%,#e36400 25%,#e36400 80%,#d25200 98%,#d05000) repeat scroll 0 0;
+  */
+  background: linear-gradient(135deg, #4fe2ec 0%, #dbeef4 100%);
+
+}
+.sp-full-page {
+  /* background-color: #ECF4BA; */
+  /* background: linear-gradient(20deg, #c0392b 0%, #ff6c4c 50%, #c0392b 100%); */
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 980;
+  margin-bottom: 0 !important; /* Takes care of bottom margin on the body */
+}
+
+.sp-login {
+  margin: 0 auto; 
+  max-width: 300px; 
+  text-align: left;
+  padding: 30px;
+}
+
+.navbar-brand img {
+  height: 30px; margin-bottom: 2px;
+}
+
+.sp-logo {
+  max-height: 30px;
+}
+/* Component settings menu */
+
+.sp-menubar-icon {
+  margin-top: -5px;
+  width: 24px;
+  height: 24px;
+}
+
+.sp-component {
+  margin-bottom: 20px;
+}
+
+.sp-select-component {
+  border: 2px solid lightblue;
+}
+
+.sp-component-action-menu {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  cursor: pointer;
+  z-index: 999;
+}
+/* End Component settings menu */
+
+/* Styles for drag-n-drop for moving widgets around */
+.sp-empty-column {
+  border: 3px dotted lightblue;
+  min-width: 50px !important;
+  min-height: 50px !important;
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+}
+.sp-last-component {
+  min-width: 20px;
+  min-height: 20px;
+  margin-top: -20px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  padding: 15px;
+}
+.sp-last-page-tab {
+  min-width: 20px;
+  min-height: 20px;
+}
+/* End Styles for drag-n-drop for moving widgets around */
+
+/* Sidebar */
+.sp-sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1090; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s ease-in-out; /* 0.5 second transition effect to slide in the sidenav */
+  opacity: 0.9;
+}
+
+.sp-open {
+  width: 200px;
+}
+
+/* End Sidebar */
+/* Takes away card borders for small displays */
+@media (max-width: 576px) {
+  .sp-card {
+    border: none !important;
+  }
+}
+
+/* Styles for forms */
+.sp-required::after {
+  color: #d35400;
+  content: "*";
+}
+
+.form-check.is-invalid ~ .invalid-feedback, .sp-form-input.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* End styles for forms */
+
+/* Styles for Loader */
+.sp-loading {
+  padding: 10px;
+  text-align: center;
+}
+
+@-webkit-keyframes line-scale-pulse-out {
+  0% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); }
+  50% {
+    -webkit-transform: scaley(0.6);
+            transform: scaley(0.6); }
+  100% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); } }
+
+@keyframes line-scale-pulse-out {
+  0% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); }
+  50% {
+    -webkit-transform: scaley(0.6);
+            transform: scaley(0.6); }
+  100% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); } }
+
+.line-scale-pulse-out > div {
+  background-color: #D35400;
+  width: 4px;
+  height: 24px;
+  border-radius: 2px;
+  margin: 2px;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  display: inline-block;
+  -webkit-animation: line-scale-pulse-out 0.9s -0.6s infinite cubic-bezier(0.85, 0.25, 0.37, 0.85);
+          animation: line-scale-pulse-out 0.9s -0.6s infinite cubic-bezier(0.85, 0.25, 0.37, 0.85); }
+  .line-scale-pulse-out > div:nth-child(1), .line-scale-pulse-out > div:nth-child(3) {
+    -webkit-animation-delay: -0.2s !important;
+  animation-delay: -0.2s !important; 
+}
+
+.fade-enter-active {
+  transition: opacity 0.7s;
+  transition-delay: 0.7s;
+}
+
+.fade-leave-active {
+  transition: opacity 0.7s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.slide-leave-active,
+.slide-enter-active {
+  transition: 0.7s;
+}
+.slide-enter {
+  transform: translate(-100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}
+/* End Styles for Loader */

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link href="{{{CDN_URL}}}/lib/spapp.css" rel="stylesheet">
+    <title>SinglePage.js Service Tester</title>
+</head>
+
+<body>
+	<div id="header">
+    </div>
+    <div style="width: 500px; text-align: center; margin: 0 auto;">
+        <img class="m-4" src="{{{CDN_URL}}}/images/app_logo.png">
+        <form>
+        	<div class="form-group">
+        		<span class="mr-2">Service URL:</span> <span id="service-url"></span>
+        	</div>
+        	<div class="form-group">
+        		<input class="form-control" id="service" name="service" placeholder="Service Name" />
+        	</div>
+        	<div class="form-group">
+        		<input class="form-control" id="method" name="method" placeholder="Method Name" />
+        	</div>
+        	<div class="form-group">
+        		<textarea class="form-control" name="call_data" id="call_data" placeholder="Call JSON"></textarea>
+        	</div>
+        	<div class="form-button-row">
+        		<button class="btn btn-primary" onclick="invokeMethod(event)">Invoke</button>
+        	</div>
+        </form>
+        <div style="margin-top: 20px; text-align: left;">
+            <em>Output:</em>
+        	<textarea class="form-control" id="response"></textarea>
+        </div>
+    </div>
+	<script src="{{{CDN_URL}}}/lib/rpc.umd.js"></script>
+</body>
+<script>
+    'use strict';
+    var serviceUrl = JSON.parse('{{{SERVICE_URL}}}');
+    if (serviceUrl) SPRPC.serviceURL = serviceUrl;
+    var url = window.location.href;
+    url = url.substring(0, url.indexOf('/sp-files'));
+    document.getElementById('service-url').innerHTML = url;
+
+	function invokeMethod(event) {
+		event.preventDefault();
+		// var url = document.getElementById("service_url").value;
+		var service = document.getElementById("service").value;
+        var m = document.getElementById("method").value;
+        var params = JSON.parse(document.getElementById("call_data").value);
+        SPRPC.invoke(service, m, params, successHandler, errorHandler);
+    }
+    
+    function successHandler(respObj) {
+        document.getElementById("response").value = JSON.stringify(respObj);
+    }
+
+    function errorHandler(status, errorMessage, errorDescription) {
+        alert(errorMessage);
+    }
+</script>
+
+</html>

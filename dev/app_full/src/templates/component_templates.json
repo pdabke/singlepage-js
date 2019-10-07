@@ -1,0 +1,12 @@
+{
+	"card-default": {
+		"componentClass": "card sp-card flex-grow-1",
+		"headerClass": "card-header bg-secondary h5",
+		"bodyClass": "card-body"
+	},
+	"note-padded-centered": {
+		"componentClass": "card sp-card flex-grow-1",
+		"headerClass": "card-header border-0 bg-white h5",
+		"bodyClass": "p-5 d-flex align-items-center justify-content-center"
+	}
+}

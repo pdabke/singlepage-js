@@ -1,0 +1,22 @@
+- Client app distribution that can be easily deployed from scratch or heroku/aws
+test the scenario when client is deployed on CDM
+Check if favicon.ico is delivered
+Private site
+test session timeout
+correct redirect after login
+login redirect when a page is not found and user is not logged
+mention all available SP components that can be used in SP widgets
+Cookie consent
+UI for site customization
+Handle login prereqs
+add registration flow
+Watch email template files in dev mode
+
+support configuring app specific globals
+
+Support Date, Object vue component properties
+Allow custom actions definition at the same time extract property settings from component definition
+When user creates a new component, show the settings form instead of showing the component with empty config
+
+portal edit autosave vs explicit save
+Detect the real client IP when the server is behind a proxy

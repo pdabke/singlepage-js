@@ -1,0 +1,5 @@
+Hi {{username}},
+
+{{body}}
+
+  - Your Friendly Neighborhood {{tenantName}} Team
