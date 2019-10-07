@@ -15,7 +15,7 @@
     "singlepage": "./bin/sp-cli.js"
   },
   "scripts": {
-    "install": "node ./dev/tools/build_dist.js"
+    "postinstall": "node ./dev/tools/build_dist.js"
   },
   "repository": {
     "type": "git",
