@@ -12,7 +12,7 @@
   "module": "./dist/splib.esm.js",
   "preferGlobal": true,
   "bin": {
-    "singlepage": "./bin/sp-cli.js"
+    "singlepage": "./bin/singlepage.js"
   },
   "scripts": {
     "postinstall": "node ./dev/tools/build_dist.js"
