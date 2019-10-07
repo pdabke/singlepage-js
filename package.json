@@ -15,8 +15,7 @@
     "singlepage": "./bin/sp-cli.js"
   },
   "scripts": {
-    "build": "node ./dev/tools/build_dist.js",
-    "prepublish": "npm run build"
+    "install": "node ./dev/tools/build_dist.js"
   },
   "repository": {
     "type": "git",
