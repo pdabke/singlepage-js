@@ -37,8 +37,8 @@ var Build = {
     _OPTIONS = options;
     if (options.isServe) {
       let validatorCode = fs.readFileSync(path.resolve(_SP_HOME, 'dist', 'validator.umd.js'), 'utf-8');
-      let portalEditorCode = fs.readFileSync(path.resolve(_SP_HOME, 'dist', 'validator.umd.js'), 'utf-8');
-      let rpcCode = fs.readFileSync(path.resolve(_SP_HOME, 'dist', 'validator.umd.js'), 'utf-8');
+      let portalEditorCode = fs.readFileSync(path.resolve(_SP_HOME, 'dist', 'portal_editor.umd.js'), 'utf-8');
+      let rpcCode = fs.readFileSync(path.resolve(_SP_HOME, 'dist', 'rpc.umd.js'), 'utf-8');
 
       _BUILD_OUTPUT = { 
         code: {
