@@ -52,3 +52,17 @@ cd myapp
 singlepage build
 node ./dist/bin/spstart.js
 ```
+### View application
+Open a Web browser and access your application at http://localhost:8080
+
+### Editing application
+Click on the Login button on the top right corner. Use admin/admin as your username/password. Turn the edit mode on via dropdown menu on the top right corner.
+
+- Add Component:  Select a component from the select box in each column and click Add
+- Edit Component Properties: Click on the gear icon on a window and select "Edit Settings" to set component properties
+- Delete Component: Select "Delete Component" from the portal window menu 
+- Rearrange Components: You can drag and drop components by clicking on the drag icon shown on the top right corner of each portal window
+- Add Page: Select "New Page" from the top right dropdown and enter requested page metadata
+- Delete Page: Select "Delete Current Page" from the top level dropdown
+- Change Page Order: Drag and drop the top menubar page links
+- Add Folder: Open Page Manager from the top level menu and click on "New Folder" button
