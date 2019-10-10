@@ -75,7 +75,7 @@ var Build = {
     var isProduction = process.env.NODE_ENV != 'development';
 
     if (!options.isServe) {
-      if (fs.existsSync(distDir)) fs.emptyDirSync(distDir);
+      if (fs.existsSync(distDir)) emptyDirWithExclusions(distDir, {".git": true, ".gitignore": true, ".npmignore": true});
       fs.ensureDirSync(distResourceDir);
       fs.ensureDirSync(distClientLibDir);
 
@@ -630,4 +630,21 @@ function removeComponent(p) {
 
 }
 
+function emptyDirWithExclusions(dir, exclusions) {
+  if (!fs.existsSync(dir)) return;
+  var files = fs.readdirSync(dir);
+  if (!files) return;
+  for (let i=0; i<files.length; i++) {
+    if (exclusions[files[i]]) continue;
+    let f = path.resolve(dir, files[i]);
+    if (fs.lstatSync(f).isDirectory()) {
+      fs.emptyDirSync(f);
+      fs.rmdirSync(f);
+    } else {
+      fs.unlinkSync(f);
+    }
+
+  }
+
+}
 module.exports = Build;

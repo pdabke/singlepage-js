@@ -13,6 +13,7 @@ const livereload = require('livereload');
 const Build = require('./build');
 const dotenv = require('dotenv');
 const _SP_HOME = path.resolve(__dirname, '..', '..');
+
 var Serve = {
   async handle(options) {
     // Indicate to build that it should compile files to memory
@@ -32,6 +33,12 @@ var Serve = {
       }
     }
 
+    // Require server.js from the right path and set spServer field on option since
+    // the build needs it in the development mode to act on changes to the watched files
+    const { Server } = options.distDir ? require(path.resolve(options.distDir, 'lib', 'spserver.js')) :
+    require(path.resolve(options.appBase, 'lib', 'spserver.js'));
+    options.spServer = Server;
+    
     // Get security cert and key path before potential directory change
     if (options.cert) options.cert = path.resolve(options.cert);
     if (options.key) options.key = path.resolve(options.key);
@@ -84,15 +91,13 @@ var Serve = {
     }
 
     options.spHome = _SP_HOME;
-
+/*
     console.debug('SinglePage.js install directory: ' + options.spHome);
     if (options.appBase) console.debug('SinglePage.js application directory: ' + options.appBase);
     if (options.distDir) console.debug('SinglePage.js dist directory: ' + options.distDir);
-
+*/
     setupEnv(options);
-    const { Server } = options.distDir ? require(path.resolve(options.distDir, 'lib', 'spserver.js')) :
-      require(path.resolve(options.appBase, 'lib', 'spserver.js'));
-      Server.start(config, buildOutput);
+    Server.start(config, buildOutput);
   }
 }
 

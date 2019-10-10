@@ -7,11 +7,15 @@
  */
 const path = require('path');
 const chokidar = require('chokidar');
+var _SPSERVER = null;
 var _LIB_FILE_WATCHER = null;
+var _INDEX_WATCHER = null;
+var _SERVICE_WATCHER = null;
 var _BUILD_LIB_CB = null;
 var Watcher = {
   init(options, watchFiles, libCB, buildCompCB, delCompCB) {
     _BUILD_LIB_CB = libCB;
+    _SPSERVER = options.spServer;
     console.log('Running in watch mode');
 
     var compWatcher = chokidar.watch(path.resolve(options.appBase, 'src', 'components'));
@@ -25,6 +29,23 @@ var Watcher = {
     if (watchFiles) {
       this.updateWatchFiles(filterWatchFiles(watchFiles));
     }
+
+    // Watch index file changes
+    var indexFilePath = path.resolve(process.env.SP_APP_BASE, 'src', 'www')
+    _INDEX_WATCHER = chokidar.watch(indexFilePath);
+    _INDEX_WATCHER.on('ready', function () {
+      _INDEX_WATCHER.on('change', function () {
+          _SPSERVER.reloadIndexFile();
+        })
+      });
+
+    // Watch service files changes
+    _SERVICE_WATCHER = chokidar.watch(path.resolve(process.env.SP_APP_BASE, 'server', 'services'));
+    _SERVICE_WATCHER.on('ready', function() {
+      _SERVICE_WATCHER.on('add', function(path) { _SPSERVER.serviceChanged(path, 'add'); })
+        .on('change', function(path) { _SPSERVER.serviceChanged(path, 'change'); })
+    .on('unlink', function(path) { _SPSERVER.serviceChanged(path, 'unlink'); });
+    });
   },
   updateWatchFiles(watchFiles) {
     var wf = filterWatchFiles(watchFiles);

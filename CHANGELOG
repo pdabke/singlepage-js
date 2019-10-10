@@ -20,3 +20,9 @@ Singlepage Portal Framework
 - Built-in page grid layouts with the ability to define your own
 - Role based access control for services
 - Default implmentation of core services that do not have any external dependencies
+
+Release 0.2.5
+- build command now does not delete existing dist directory and .git, .gitignore to support Heroku git-based deployment
+- Dependency on chokidar is now completely removed from runtime code
+- Added engines element to package.json
+- Fixed start command in package.json
