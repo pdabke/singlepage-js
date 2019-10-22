@@ -1,4 +1,8 @@
 # singlepage-js
+>  
+> Complete documentation available on Singlepage.js Web site at https://www.singlepagejs.com
+> 
+
 ## Introduction
 Singlepage.js is a pure Javascript portal platform for building modular Web applications. The platform is composed of three components: 
 - CLI for bootstrapping, developing, and deploying applications
