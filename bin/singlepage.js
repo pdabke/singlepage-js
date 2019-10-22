@@ -22,7 +22,7 @@ program
   .option("-P, --https-port <port>", "HTTPS port")
   .option("-c, --cert <cert-file>", "HTTPS cert file")
   .option("-k, --key <key-file>", "HTTPS key file")
-  .option("-a, --app-base <app-base>", "Appliction root directory. Either specify appBase or distDir, not both.")
+  .option("-a, --app-base <app-base>", "Appliction root directory")
   .action(Serve.handle);
 
 program.parse(process.argv);

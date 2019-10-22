@@ -1,1 +1,514 @@
-{"title":"SinglePage.js Portal","keywords":"cms,collaboration","descr":"A demo Website built using SinglePage.js portal framework.","author":"My Company","theme":"default","siteDef":{"pages":[{"path":"home","label":"msg_home","layout":"landing","roles":[],"isTopLevel":true,"folder":null,"components":[],"containers":[{"id":100,"components":[],"tagName":"div","containers":[{"id":101,"components":[{"id":38,"name":"SpHtml","config":{"content":"<div class=\"bg-warning\">\n  <div class=\"container\">\n    <div class=\"d-md-flex flex-row justify-content-center align-items-center\">\n        <img style=\"max-width: 500px; height: auto;\" class=\"p-3 p-md-5 embed-responsive\" src=\"{{CDN_URL}}/images/landing.svg\">\n        <div class=\"p-4\">\n            <div class=\"sp-display-4 text-white text-center text-sm-left\" >Singlepage.js</div>\n            <div class=\"sp-lead text-white text-center text-sm-left\" >A Javascript portal framework for building modular Web applications</div>\n        </div>\n   </div>\n </div>\n</div>\n"},"roles":[],"template":"blank"}],"tagName":"header","containers":[]},{"id":102,"components":[],"tagName":"div","class":"container","containers":[{"id":103,"components":[{"id":39,"name":"SpHtml","config":{"content":"<div class=\"text-center\">\n<i class=\"material-icons md-64 p-4 text-danger\">\nlock_open\n</i>\n<h2>Open Source</h2>\n<div class=\"lead text-muted px-2 py-4\">\nReleased under MIT license. Use in open source or commercial projects.\n</div>\n</div>"},"roles":[],"template":"note-default"},{"id":40,"name":"SpHtml","config":{"content":"<div class=\"text-center\">\n<i class=\"material-icons md-64 p-4 text-danger\">\ncode\n</i>\n<h2>Productivity</h2>\n<div class=\"lead text-muted py-4 px-2\">\nLeave the rest to the framework. Focus on functionality. \n</div>\n</div>"},"roles":[],"template":"note-default"},{"id":41,"name":"SpHtml","config":{"content":"<div class=\"text-center\">\n<i class=\"material-icons md-64 p-4 text-danger\">\nshare\n</i>\n<h2>Community</h2>\n<div class=\"lead text-muted px-2 py-4\">\nShare components, services, even complete applications with others.\n</div>\n</div>"},"roles":[]}],"tagName":"div","class":"row justify-content-between flex-row align-items-stretch","cclass":"col-md m-md-3","containers":[]}]}]}]},{"path":"compstyles","label":"msg_comp_styles","isTopLevel":true,"layout":"three_columns_equal_width","containers":[{"id":100,"components":[],"tagName":"div","class":"container mt-3","containers":[{"id":101,"components":[],"tagName":"div","class":"row","containers":[{"id":102,"components":[{"id":32,"name":"SpHtml","config":{"content":"Default note style. We didn't set the title on this one."},"roles":[],"template":"note-default"},{"id":6,"name":"SpHtml","template":"note-info","title":"Info Note","config":{"content":"You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."},"roles":[]},{"id":10,"name":"SpHtml","template":"note-warning","title":"Warning Note","config":{"content":"You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."},"roles":[]},{"id":30,"name":"SpHtml","config":{"content":"This window is styled using danger-note template."},"roles":[],"template":"note-danger","title":"Danger Note"},{"id":4,"name":"SpHtml","template":"note-light","title":"On a Lighter Note","config":{"content":"You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."},"roles":[]},{"id":31,"name":"SpHtml","config":{"content":"This window is styled using dark-note template."},"roles":[],"template":"note-dark","title":"Dark Note"},{"id":33,"name":"SpHtml","config":{"content":"<ul class=\"list-group list-group-flush\">\n  <li class=\"list-group-item\">This style does not have padding.</li>\n  <li class=\"list-group-item\">Useful for flushed lists</li>\n  <li class=\"list-group-item\">among other things.</li>\n</ul>"},"roles":[],"title":"Flush Note","template":"note-flush"}],"tagName":"div","class":"col-md-4","containers":[]},{"id":103,"components":[{"id":37,"name":"SpHtml","config":{"content":"\"blank\" template. There is no style set in this template except position-relative to make the edit icon appear in the right place. "},"roles":[],"template":"blank"},{"id":11,"name":"SpHtml","title":"Jumbotron","template":"jumbotron","config":{"content":"<p class=\"lead\">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>\n  <hr class=\"my-4\">\n  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>\n  <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a>"},"roles":[]},{"id":1,"name":"SpHtml","template":"jumbotron","config":{"content":"<h1>You can edit this content by turning the edit mode on. Let's see if this works.</h1>"},"roles":[]}],"tagName":"div","class":"col-md-4","containers":[]},{"id":104,"components":[{"id":34,"name":"SpHtml","config":{"content":"This styling will be applied if you don't specify a template."},"roles":[],"title":"Default Card","template":"card-default"},{"id":7,"name":"SpHtml","title":"Info Card","template":"card-info","config":{"content":"You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."},"roles":[]},{"id":2,"name":"SpHtml","template":"card-warning","title":"Warning Card","config":{"content":"You can edit this content by turning the edit mode on."},"roles":["SUPERADMIN"]},{"id":9,"name":"SpHtml","title":"Danger Card","template":"card-danger","config":{"content":"You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."},"roles":[]},{"id":36,"name":"SpHelloWorld","config":{},"roles":[],"title":"Dark Card","template":"card-dark"},{"id":35,"name":"SpHelloWorld","config":{},"roles":[],"template":"card-light","title":"Light Card"}],"tagName":"div","class":"col-md-4","containers":[]}]}]}],"roles":[]},{"path":"menu","label":"msg_sidebar_nav","layout":"sidebar_nav","roles":[],"isTopLevel":true,"components":[],"containers":[{"id":100,"components":[],"tagName":"div","class":"container mt-3","containers":[{"id":101,"components":[{"id":44,"name":"SpRSSViewer","config":{"feedUrl":"http://www.npr.org/rss/rss.php?id=1001"},"roles":[],"title":"NPR News"},{"id":42,"name":"SpRSSViewer","config":{},"roles":[],"title":"TED Radio Hour"},{"id":43,"name":"SpRSSViewer","config":{"feedUrl":"http://feeds.bbci.co.uk/news/rss.xml"},"roles":[],"title":"BBC Top Stories"}],"tagName":"div","class":"sp-sidebar-nav","wrapperclass":"row","sidebarclass":"col-md-3","contentclass":"col-md-9","containers":[]}]}],"folder":"Folder"},{"isFolder":true,"label":"msg_dropdown","pages":[{"path":"widenarrow","label":"msg_wide_narrow_layout","layout":"wide_narrow","roles":[],"isTopLevel":true,"folder":null,"components":[],"containers":[{"id":100,"components":[],"tagName":"div","class":"container mt-3","containers":[{"id":101,"components":[],"tagName":"div","class":"row","containers":[{"id":102,"components":[{"id":47,"name":"SpRSSViewer","config":{"feedUrl":"http://www.espn.com/espn/rss/news"},"roles":[]}],"tagName":"div","class":"col-md-8","containers":[]},{"id":103,"components":[{"id":48,"name":"SpRSSViewer","config":{},"roles":[]}],"tagName":"div","class":"col-md-4","containers":[]}]}]}]},{"path":"twocols","label":"msg_two_equal_columns","layout":"two_columns_equal_width","roles":[],"isTopLevel":true,"folder":null,"components":[],"containers":[{"id":100,"components":[],"tagName":"div","class":"container mt-3","containers":[{"id":101,"components":[],"tagName":"div","class":"row","containers":[{"id":102,"components":[{"id":45,"name":"SpHelloWorld","config":{},"roles":[],"template":"jumbotron"}],"tagName":"div","class":"col-md-6","containers":[]},{"id":103,"components":[{"id":46,"name":"SpHtml","config":{"content":"This page has a layout that displays two equal width columns. You can change the page layout by turning the edit mode on and editing page metadata."},"roles":[],"template":"note-info"}],"tagName":"div","class":"col-md-6","containers":[]}]}]}]}],"roles":[]},{"path":"echo","label":"Echo","layout":"wide_single_column","roles":[],"isTopLevel":true,"folder":null,"components":[],"containers":[{"id":100,"components":[],"tagName":"div","class":"container mt-3","containers":[{"id":101,"components":[],"tagName":"div","class":"row","containers":[{"id":102,"components":[{"id":49,"name":"Echo","config":{},"roles":[],"template":"note-default"}],"tagName":"div","class":"col","containers":[]}]}]}]}]},"siteData":{},"accessType":"PUBLIC"}
+{
+  "title": "SinglePage.js Portal",
+  "keywords": "singlepage-js, Vue.js",
+  "descr": "A demo Website built using SinglePage.js portal framework.",
+  "author": "Padmanabh Dabke",
+  "theme": "default",
+  "siteDef": {
+    "pages": [
+      {
+        "path": "home",
+        "label": "msg_home",
+        "layout": "landing",
+        "roles": [],
+        "isTopLevel": true,
+        "folder": null,
+        "components": [],
+        "containers": [
+          {
+            "id": 100,
+            "components": [],
+            "tagName": "div",
+            "containers": [
+              {
+                "id": 101,
+                "components": [
+                  {
+                    "id": 38,
+                    "name": "SpHtml",
+                    "config": {
+                      "content": "<div class=\"bg-warning\">\n  <div class=\"container\">\n    <div class=\"d-md-flex flex-row justify-content-center align-items-center\">\n        <img style=\"max-width: 500px; height: auto;\" class=\"p-3 p-md-5 embed-responsive\" src=\"{{CDN_URL}}/images/landing.svg\">\n        <div class=\"p-4\">\n            <div class=\"sp-display-4 text-white text-center text-sm-left\" >Singlepage.js</div>\n            <div class=\"sp-lead text-white text-center text-sm-left\" >A Javascript portal framework for building modular Web applications</div>\n        </div>\n   </div>\n </div>\n</div>\n"
+                    },
+                    "roles": [],
+                    "template": "blank"
+                  }
+                ],
+                "tagName": "header",
+                "containers": []
+              },
+              {
+                "id": 102,
+                "components": [],
+                "tagName": "div",
+                "class": "container",
+                "containers": [
+                  {
+                    "id": 103,
+                    "components": [
+                      {
+                        "id": 39,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "<div class=\"text-center\">\n<i class=\"material-icons md-64 p-4 text-danger\">\nlock_open\n</i>\n<h2>Open Source</h2>\n<div class=\"lead text-muted px-2 py-4\">\nReleased under MIT license. Use in open source or commercial projects.\n</div>\n</div>"
+                        },
+                        "roles": [],
+                        "template": "note-default"
+                      },
+                      {
+                        "id": 40,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "<div class=\"text-center\">\n<i class=\"material-icons md-64 p-4 text-danger\">\ncode\n</i>\n<h2>Productivity</h2>\n<div class=\"lead text-muted py-4 px-2\">\nFocus on functionality. Leave the rest to the framework. \n</div>\n</div>"
+                        },
+                        "roles": [],
+                        "template": "note-default"
+                      },
+                      {
+                        "id": 41,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "<div class=\"text-center\">\n<i class=\"material-icons md-64 p-4 text-danger\">\nshare\n</i>\n<h2>Community</h2>\n<div class=\"lead text-muted px-2 py-4\">\nShare components, services, even complete applications with others.\n</div>\n</div>"
+                        },
+                        "roles": []
+                      }
+                    ],
+                    "tagName": "div",
+                    "class": "row justify-content-between flex-row align-items-stretch",
+                    "cclass": "col-md m-md-3",
+                    "containers": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "path": "compstyles",
+        "label": "msg_comp_styles",
+        "isTopLevel": true,
+        "layout": "three_columns_equal_width",
+        "containers": [
+          {
+            "id": 100,
+            "components": [],
+            "tagName": "div",
+            "class": "container mt-3",
+            "containers": [
+              {
+                "id": 101,
+                "components": [],
+                "tagName": "div",
+                "class": "row",
+                "containers": [
+                  {
+                    "id": 102,
+                    "components": [
+                      {
+                        "id": 32,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "Default note style. We didn't set the title on this one."
+                        },
+                        "roles": [],
+                        "template": "note-default"
+                      },
+                      {
+                        "id": 6,
+                        "name": "SpHtml",
+                        "template": "note-info",
+                        "title": "Info Note",
+                        "config": {
+                          "content": "You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."
+                        },
+                        "roles": []
+                      },
+                      {
+                        "id": 10,
+                        "name": "SpHtml",
+                        "template": "note-warning",
+                        "title": "Warning Note",
+                        "config": {
+                          "content": "You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."
+                        },
+                        "roles": []
+                      },
+                      {
+                        "id": 30,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "This window is styled using danger-note template."
+                        },
+                        "roles": [],
+                        "template": "note-danger",
+                        "title": "Danger Note"
+                      },
+                      {
+                        "id": 4,
+                        "name": "SpHtml",
+                        "template": "note-light",
+                        "title": "On a Lighter Note",
+                        "config": {
+                          "content": "You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."
+                        },
+                        "roles": []
+                      },
+                      {
+                        "id": 31,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "This window is styled using dark-note template."
+                        },
+                        "roles": [],
+                        "template": "note-dark",
+                        "title": "Dark Note"
+                      },
+                      {
+                        "id": 33,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "<ul class=\"list-group list-group-flush\">\n  <li class=\"list-group-item\">This style does not have padding.</li>\n  <li class=\"list-group-item\">Useful for flushed lists</li>\n  <li class=\"list-group-item\">among other things.</li>\n</ul>"
+                        },
+                        "roles": [],
+                        "title": "Flush Note",
+                        "template": "note-flush"
+                      }
+                    ],
+                    "tagName": "div",
+                    "class": "col-md-4",
+                    "containers": []
+                  },
+                  {
+                    "id": 103,
+                    "components": [
+                      {
+                        "id": 37,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "\"blank\" template. There is no style set in this template except position-relative to make the edit icon appear in the right place. "
+                        },
+                        "roles": [],
+                        "template": "blank"
+                      },
+                      {
+                        "id": 11,
+                        "name": "SpHtml",
+                        "title": "Jumbotron",
+                        "template": "jumbotron",
+                        "config": {
+                          "content": "<p class=\"lead\">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>\n  <hr class=\"my-4\">\n  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>\n  <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a>"
+                        },
+                        "roles": []
+                      },
+                      {
+                        "id": 1,
+                        "name": "SpHtml",
+                        "template": "jumbotron",
+                        "config": {
+                          "content": "<h1>You can edit this content by turning the edit mode on. Let's see if this works.</h1>"
+                        },
+                        "roles": []
+                      }
+                    ],
+                    "tagName": "div",
+                    "class": "col-md-4",
+                    "containers": []
+                  },
+                  {
+                    "id": 104,
+                    "components": [
+                      {
+                        "id": 34,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "This styling will be applied if you don't specify a template."
+                        },
+                        "roles": [],
+                        "title": "Default Card",
+                        "template": "card-default"
+                      },
+                      {
+                        "id": 7,
+                        "name": "SpHtml",
+                        "title": "Info Card",
+                        "template": "card-info",
+                        "config": {
+                          "content": "You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."
+                        },
+                        "roles": []
+                      },
+                      {
+                        "id": 2,
+                        "name": "SpHtml",
+                        "template": "card-warning",
+                        "title": "Warning Card",
+                        "config": {
+                          "content": "You can edit this content by turning the edit mode on."
+                        },
+                        "roles": [
+                          "SUPERADMIN"
+                        ]
+                      },
+                      {
+                        "id": 9,
+                        "name": "SpHtml",
+                        "title": "Danger Card",
+                        "template": "card-danger",
+                        "config": {
+                          "content": "You can edit this content by turning the edit mode on and using the drop down menu on top right corner of this component."
+                        },
+                        "roles": []
+                      },
+                      {
+                        "id": 36,
+                        "name": "SpHelloWorld",
+                        "config": {},
+                        "roles": [],
+                        "title": "Dark Card",
+                        "template": "card-dark"
+                      },
+                      {
+                        "id": 35,
+                        "name": "SpHelloWorld",
+                        "config": {},
+                        "roles": [],
+                        "template": "card-light",
+                        "title": "Light Card"
+                      }
+                    ],
+                    "tagName": "div",
+                    "class": "col-md-4",
+                    "containers": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "roles": []
+      },
+      {
+        "path": "menu",
+        "label": "msg_sidebar_nav",
+        "layout": "sidebar_nav",
+        "roles": [],
+        "isTopLevel": true,
+        "components": [],
+        "containers": [
+          {
+            "id": 100,
+            "components": [],
+            "tagName": "div",
+            "class": "container mt-3",
+            "containers": [
+              {
+                "id": 101,
+                "components": [
+                  {
+                    "id": 44,
+                    "name": "SpRSSViewer",
+                    "config": {
+                      "feedUrl": "http://www.npr.org/rss/rss.php?id=1001"
+                    },
+                    "roles": [],
+                    "title": "NPR News"
+                  },
+                  {
+                    "id": 42,
+                    "name": "SpRSSViewer",
+                    "config": {},
+                    "roles": [],
+                    "title": "TED Radio Hour"
+                  },
+                  {
+                    "id": 43,
+                    "name": "SpRSSViewer",
+                    "config": {
+                      "feedUrl": "http://feeds.bbci.co.uk/news/rss.xml"
+                    },
+                    "roles": [],
+                    "title": "BBC Top Stories"
+                  }
+                ],
+                "tagName": "div",
+                "class": "sp-sidebar-nav",
+                "wrapperclass": "row",
+                "sidebarclass": "col-md-3",
+                "contentclass": "col-md-9",
+                "containers": []
+              }
+            ]
+          }
+        ],
+        "folder": "Folder"
+      },
+      {
+        "isFolder": true,
+        "label": "msg_dropdown",
+        "pages": [
+          {
+            "path": "widenarrow",
+            "label": "msg_wide_narrow_layout",
+            "layout": "wide_narrow",
+            "roles": [],
+            "isTopLevel": true,
+            "folder": null,
+            "components": [],
+            "containers": [
+              {
+                "id": 100,
+                "components": [],
+                "tagName": "div",
+                "class": "container mt-3",
+                "containers": [
+                  {
+                    "id": 101,
+                    "components": [],
+                    "tagName": "div",
+                    "class": "row",
+                    "containers": [
+                      {
+                        "id": 102,
+                        "components": [
+                          {
+                            "id": 47,
+                            "name": "SpRSSViewer",
+                            "config": {
+                              "feedUrl": "http://www.espn.com/espn/rss/news"
+                            },
+                            "roles": []
+                          }
+                        ],
+                        "tagName": "div",
+                        "class": "col-md-8",
+                        "containers": []
+                      },
+                      {
+                        "id": 103,
+                        "components": [
+                          {
+                            "id": 48,
+                            "name": "SpRSSViewer",
+                            "config": {},
+                            "roles": []
+                          }
+                        ],
+                        "tagName": "div",
+                        "class": "col-md-4",
+                        "containers": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "path": "twocols",
+            "label": "msg_two_equal_columns",
+            "layout": "two_columns_equal_width",
+            "roles": [],
+            "isTopLevel": true,
+            "folder": null,
+            "components": [],
+            "containers": [
+              {
+                "id": 100,
+                "components": [],
+                "tagName": "div",
+                "class": "container mt-3",
+                "containers": [
+                  {
+                    "id": 101,
+                    "components": [],
+                    "tagName": "div",
+                    "class": "row",
+                    "containers": [
+                      {
+                        "id": 102,
+                        "components": [
+                          {
+                            "id": 45,
+                            "name": "SpHelloWorld",
+                            "config": {},
+                            "roles": [],
+                            "template": "jumbotron"
+                          }
+                        ],
+                        "tagName": "div",
+                        "class": "col-md-6",
+                        "containers": []
+                      },
+                      {
+                        "id": 103,
+                        "components": [
+                          {
+                            "id": 46,
+                            "name": "SpHtml",
+                            "config": {
+                              "content": "This page has a layout that displays two equal width columns. You can change the page layout by turning the edit mode on and editing page metadata."
+                            },
+                            "roles": [],
+                            "template": "note-info"
+                          }
+                        ],
+                        "tagName": "div",
+                        "class": "col-md-6",
+                        "containers": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "roles": []
+      },
+      {
+        "path": "echo",
+        "label": "Echo",
+        "layout": "wide_single_column",
+        "roles": [],
+        "isTopLevel": true,
+        "folder": null,
+        "components": [],
+        "containers": [
+          {
+            "id": 100,
+            "components": [],
+            "tagName": "div",
+            "class": "container mt-3",
+            "containers": [
+              {
+                "id": 101,
+                "components": [],
+                "tagName": "div",
+                "class": "row",
+                "containers": [
+                  {
+                    "id": 102,
+                    "components": [
+                      {
+                        "id": 49,
+                        "name": "Echo",
+                        "config": {},
+                        "roles": [],
+                        "template": "note-default"
+                      }
+                    ],
+                    "tagName": "div",
+                    "class": "col",
+                    "containers": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "siteData": {},
+  "accessType": "PUBLIC"
+}

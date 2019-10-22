@@ -180,7 +180,10 @@ export default {
   and reset error
   */
   watch: {
-    formData: function() {
+    formData: function(newData, oldData) {
+      // Covers the possibility that one of the other form field values has caused the change in formData
+      // the object itself has not changed.
+      if (newData === oldData) return; 
       this.fieldError = null;
     },
     errors: function() {

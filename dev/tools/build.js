@@ -75,7 +75,7 @@ var Build = {
     var isProduction = process.env.NODE_ENV != 'development';
 
     if (!options.isServe) {
-      if (fs.existsSync(distDir)) emptyDirWithExclusions(distDir, {".git": true, ".gitignore": true, ".npmignore": true});
+      if (fs.existsSync(distDir)) emptyDirWithExclusions(distDir, {".git": true, ".gitignore": true, ".npmignore": true, "Procfile": true});
       fs.ensureDirSync(distResourceDir);
       fs.ensureDirSync(distClientLibDir);
 

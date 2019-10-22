@@ -156,6 +156,32 @@ export default {
   },
   computed: {
     typedConfig: function() {
+      /*
+      if (!this.settingsFormDef) return this.component.config;
+      var containsObj = false;
+      for (let i=0; i<this.settingsFormDef.fields.length; i++) {
+        if (this.settingsFormDef.fields[i].dataType == 'object' || this.settingsFormDef.fields[i].dataType == 'array') containsObj = true;
+      }
+      if (!containsObj) return this.component.config;
+      var newConfig = {};
+      for (let i=0; i<this.settingsFormDef.fields.length; i++) {
+        let fname = this.settingsFormDef.fields[i].name;
+        if (!this.component.config[fname]) continue;
+        if (this.settingsFormDef.fields[i].dataType == 'object' || this.settingsFormDef.fields[i].dataType == 'array') {
+          try {
+            newConfig[fname] = JSON.parse(this.component.config[fname]);
+          } catch (e) {
+            console.error(e);
+          }
+        } else {
+          newConfig[fname] = this.component.config[fname];
+        }
+      }
+      console.log(JSON.stringify(this.component.config))
+      console.log(JSON.stringify(newConfig));
+      return newConfig;
+      */
+      
       if (!this.component || !this.component.config) return {};
       if (!this.$app.componentMap[this.component.name]) return this.component.config;
       if (!this.$app.componentMap[this.component.name][3]) return this.component.config;
@@ -170,6 +196,7 @@ export default {
         else newConfig[key] = this.component.config[key];
       }
       return newConfig;
+      
     },
     actions: function() {
       if (!this.$app.user) return null;

@@ -20,3 +20,11 @@ When user creates a new component, show the settings form instead of showing the
 
 portal edit autosave vs explicit save
 Detect the real client IP when the server is behind a proxy
+logging and auditing
+add config parameter for setting splash, site logo, login logo, logout logo, service tester logo
+locale-specific date and number formatting
+Redirect to login page when a method invocation returns login required 
+
+If you enter an invalid value in a form field and tab out, it is shown to be invalid but when another form input gets focus the 
+invalid styling gets reset. It would be ok if the field is blank to reset styling but we should keep highlighting the wrong valued
+field if it has value

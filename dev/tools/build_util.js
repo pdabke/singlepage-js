@@ -104,7 +104,9 @@ function loadComponent(compDir, sk, prefix) {
   //console.log('Processing component: ' + sk);
   var md = { props: null, settings: null };
   if (!prefix) prefix = '';
-  var skDef = fs.readFileSync(compDir + '/' + sk, 'UTF-8');
+  var skDef = fs.readFileSync(compDir + '/' + sk, 'utf-8');
+  // Remove comments
+  skDef = skDef.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1');
   var re = /<\s*script\s*>/;
   var match = re.exec(skDef);
   if (match) skDef = skDef.substring(match.index);
@@ -128,9 +130,9 @@ function loadComponent(compDir, sk, prefix) {
     Object.keys(props).forEach(function (key) {
       let val = props[key];
       if (!val) return;
-      if (CommonUtil.isFunction(val) && val.name == 'Object') {
+      if (CommonUtil.isFunction(val) && (val.name == 'Object' || val.name == 'Array')) {
         objectFields[key] = true;
-      } else if (Util.isObject(val) && CommonUtil.isFunction(val.type) && val.type.name == 'Object') {
+      } else if (CommonUtil.isObject(val) && CommonUtil.isFunction(val.type) && (val.type.name == 'Object' || val.type.name == 'Array')) {
         objectFields[key] = true;
       }
     });
