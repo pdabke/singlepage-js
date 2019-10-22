@@ -26,3 +26,14 @@ Release 0.2.5
 - Dependency on chokidar is now completely removed from runtime code
 - Added engines element to package.json
 - Fixed start command in package.json
+
+Release 0.3.0
+- Objects needed to communicate with Singlepage (Response, ServiceDirectory) are now passed in the init method
+- Added code to test property editor functionality in Echo.vue. The code needs to be uncommented to test functionality
+- Added internationalization example to Echo.vue
+- build_util.js now strips comments before extracting props object from .vue files
+- Added Procfile (used by Heroku) to the list of files NOT deleted when new dist files are written
+- Fixed a bug in FormField.vue which was resetting error styling in one field when another field is changed
+- rpc.js now displays status code dependent error messages (instead of error_generic) when the caller does not supply error handler
+- Added support for handing editing of Vue component properties of type Array
+- Refactored service loading and access. A new object ServiceDirectory is now supplied to services to look up other services
