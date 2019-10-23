@@ -1,7 +1,7 @@
 # singlepage-js
->  
-> Complete documentation available on Singlepage.js Web site at https://www.singlepagejs.com
-> 
+Singlepage.js is a pure Javascript portal platform for building modular Web applications.
+
+> Visit https://www.singlepagejs.com for full documentation.
 
 ## Introduction
 Singlepage.js is a pure Javascript portal platform for building modular Web applications. The platform is composed of three components: 
