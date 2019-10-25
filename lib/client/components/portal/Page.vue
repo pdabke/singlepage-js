@@ -43,6 +43,12 @@
         <template v-if="targetComponent">
         <sp-component :component="targetComponent" :id="'sbcomp-' + targetComponentId" drag-disabled="true"></sp-component>
         </template>
+        <div v-else-if="$app.user" class="py-4 px-2 d-flex align-items-center justify-content-center text-muted">
+          <i class="material-icons md-36 mr-3" style="color:red;">warning</i>{{$i18n('error_missing_menu_component')}}
+        </div>
+        <div v-else class="py-4 px-2 d-flex align-items-center justify-content-center text-muted">
+          <i class="material-icons md-36 mr-3" style="color:red;">warning</i>{{$i18n('error_missing_menu_component_unlogged_user')}}
+        </div>
       </div>
     </template>
     <template v-else>
@@ -89,7 +95,7 @@ export default {
   data: function() {
     return { }
   },
-  // Path prop is only needed for menu layout so that it can figure out the current page path
+  // Property 'path' is only needed for menu layout so that it can figure out the current page path
   // and generate menu links. Original implementation used $root.currentPage but that does not
   // work since it returns the page before user navigates to the menu page.
   props: ['config', 'target', 'path'],

@@ -1,42 +1,66 @@
 Release 0.1.0
 - Placeholder release
 
-Release 0.2.0 - First functional release that focuses on core portal framework and user-less applications
+Release 0.2.0 - First functional release that focuses on core portal framework
+and user-less applications
 
 Singlepage CLI
 - Create minimal or full app boilerplate
-- Development support via "singlepage serve" that serves from memory and uses livereload 
+- Development support via "singlepage serve" that serves from memory and uses
+  livereload 
 - Build app for deployment
 
 Singlepage Portal Framework
 - Drag-n-drop portal editing via admin login
 - Vue component property editor form created from props definition
 - Support for custom component commands and property editor
-- Customization of portal window look & feel by assigning custom classes to window, title, or body area
+- Customization of portal window look & feel by assigning custom classes to
+  window, title, or body area
 - Message customization via your own messages file
 - Portal messages internationalized to English and Marathi
-- App-specific services development (just place *Service.js files in services directory)
+- App-specific services development (just place *Service.js files in services 
+  directory)
 - Component-specific internationalization
 - Built-in page grid layouts with the ability to define your own
 - Role based access control for services
-- Default implmentation of core services that do not have any external dependencies
+- Default implmentation of core services that do not have any external 
+  dependencies
 
 Release 0.2.5
-- build command now does not delete existing dist directory and .git, .gitignore to support Heroku git-based deployment
+- build command now does not delete existing dist directory and .git, 
+  .gitignore to support Heroku git-based deployment
 - Dependency on chokidar is now completely removed from runtime code
 - Added engines element to package.json
 - Fixed start command in package.json
 
 Release 0.3.0
-- Objects needed to communicate with Singlepage (Response, ServiceDirectory) are now passed in the init method
-- Added code to test property editor functionality in Echo.vue. The code needs to be uncommented to test functionality
+- Objects needed to communicate with Singlepage (Response, ServiceDirectory)
+  are now passed in the init method
+- Added code to test property editor functionality in Echo.vue. The code needs
+  to be uncommented to test functionality
 - Added internationalization example to Echo.vue
-- build_util.js now strips comments before extracting props object from .vue files
-- Added Procfile (used by Heroku) to the list of files NOT deleted when new dist files are written
-- Fixed a bug in FormField.vue which was resetting error styling in one field when another field is changed
-- rpc.js now displays status code dependent error messages (instead of error_generic) when the caller does not supply error handler
+- build_util.js now strips comments before extracting props object from .vue
+  files
+- Added Procfile (used by Heroku) to the list of files NOT deleted when new 
+  dist files are written
+- Fixed a bug in FormField.vue which was resetting error styling in one field 
+  when another field is changed
+- rpc.js now displays status code dependent error messages (instead of 
+  error_generic) when the caller does not supply error handler
 - Added support for handing editing of Vue component properties of type Array
-- Refactored service loading and access. A new object ServiceDirectory is now supplied to services to look up other services
+- Refactored service loading and access. A new object ServiceDirectory is now 
+  supplied to services to look up other services
 
 Release 0.3.1
 - Added link to singlepagejs.com site in README.md
+
+Release 0.3.2
+- The menu layout page now shows error message if a user tries to view invalid
+  or inaccessible option
+- Changed the way not found page is formatted
+- If user tries to access unloaded page and the user is not logged on, s/he is
+  directed to log in page and redirected to the original page after logging in
+- Fixed a bug in simple_site_service where changed permissions were not getting
+  cached
+- Added a page and component accessible to SUPERADMIN role to the demo app to
+  demonstrate role-based access control

@@ -96,7 +96,7 @@ export default {
     },
 
     redirectToLogin: function() {
-      this.$app.showLoginPage(this.$route.path);
+      this.$app.showLoginPage(true);
     }
   }
 }

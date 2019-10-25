@@ -6,7 +6,7 @@
  * 
  -->
 <template>
-<div class="h-100">
-<div class="middle text-danger d-flex align-items-center lead"><i class="material-icons md-36 mr-2">error</i>{{$i18n('error_page_not_found')}}</div>
+<div class="d-flex middle align-items-center justify-content-center">
+    <i class="material-icons md-36 mr-3" style="color:red;">warning</i><span class="h2 m-0">Page Not Found!</span>
 </div>
 </template>

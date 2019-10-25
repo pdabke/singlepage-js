@@ -326,7 +326,9 @@
                     "config": {
                       "feedUrl": "http://feeds.bbci.co.uk/news/rss.xml"
                     },
-                    "roles": [],
+                    "roles": [
+                      "SUPERADMIN"
+                    ],
                     "title": "BBC Top Stories"
                   }
                 ],
@@ -495,6 +497,53 @@
                         "config": {},
                         "roles": [],
                         "template": "note-default"
+                      }
+                    ],
+                    "tagName": "div",
+                    "class": "col",
+                    "containers": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "path": "protected",
+        "label": "Protected",
+        "layout": "wide_single_column",
+        "roles": [
+          "SUPERADMIN"
+        ],
+        "isTopLevel": true,
+        "folder": null,
+        "components": [],
+        "containers": [
+          {
+            "id": 100,
+            "components": [],
+            "tagName": "div",
+            "class": "container mt-3",
+            "containers": [
+              {
+                "id": 101,
+                "components": [],
+                "tagName": "div",
+                "class": "row",
+                "containers": [
+                  {
+                    "id": 102,
+                    "components": [
+                      {
+                        "id": 50,
+                        "name": "SpHtml",
+                        "config": {
+                          "content": "<div class=\"alert alert-warning\">You should only see this page when you are logged in with role SUPERADMIN</div>"
+                        },
+                        "roles": [],
+                        "template": "card-default",
+                        "title": "Page with Access Control"
                       }
                     ],
                     "tagName": "div",
