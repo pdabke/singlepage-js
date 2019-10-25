@@ -1,6 +1,6 @@
 {
   "name": "singlepage-js",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": "Padmanabh Dabke",
   "keywords": [
     "portal framework",
@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/pdabke/singlepage-js/issues"
   },
-  "homepage": "https://github.com/pdabke/singlepage-js#readme",
+  "homepage": "https://www.singlepagejs.com",
   "dependencies": {
     "dotenv": "^8.1.0",
     "formidable": "^1.2.1",

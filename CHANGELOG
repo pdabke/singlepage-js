@@ -64,3 +64,6 @@ Release 0.3.2
   cached
 - Added a page and component accessible to SUPERADMIN role to the demo app to
   demonstrate role-based access control
+
+Release 0.3.3
+- Added link to www.singlepagejs.com Web site in package.json
