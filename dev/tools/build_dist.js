@@ -112,7 +112,7 @@ var targets = [
         json(),
         terser()
       ],
-      external: ['fs', 'path', 'process', 'http', 'https', 'crypto', 'chokidar', 'mustache', 'lru-cache', 'formidable', 'nodemailer', 'mime-types']
+      external: ['fs', 'fs-extra', 'path', 'process', 'http', 'https', 'crypto', 'chokidar', 'mustache', 'lru-cache', 'formidable', 'nodemailer', 'mime-types']
     },
     output: {
       format: 'cjs',

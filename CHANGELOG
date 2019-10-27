@@ -67,3 +67,7 @@ Release 0.3.2
 
 Release 0.3.3
 - Added link to www.singlepagejs.com Web site in package.json
+
+Release 0.3.4
+- Fixed a bug which was causing files in assets directory not being served 
+  correctly in development mode
