@@ -8,17 +8,21 @@
 
 <template>
   <div class="sp-one-column-container">
-  <div class="card sp-card p-1 p-sm-5 mt-3">
-    <sp-form
-      :form-def="pageForm"
-      :data-object="pageSettings"
-      :errors="errors"
-      form-id="pageEditorForm"
-      :save-label="pageAction"
-      :save-callback="savePage"
-      :cancel-callback="cancelEdit"
-    ></sp-form>
-  </div>
+    <div v-if="currentPage" class="card sp-card p-1 p-sm-5 mt-3">
+      <sp-form
+        :form-def="pageForm"
+        :data-object="pageSettings"
+        :errors="errors"
+        form-id="pageEditorForm"
+        :save-label="pageAction"
+        :save-callback="savePage"
+        :cancel-callback="cancelEdit"
+      ></sp-form>
+    </div>
+    <div v-else class="d-flex middle align-items-center justify-content-center">
+        <i class="material-icons md-36 mr-3" style="color:red;">warning</i><span class="h2 m-0">{{this.$i18n('error_cannot_edit_current_page')}}</span>
+    </div>
+    
   </div>
 </template>
 <script>
@@ -36,6 +40,7 @@ export default {
 
   data: function() {
     return {
+      currentPage: true,
       pageSettings: {
         path: "",
         label: "",
@@ -118,6 +123,11 @@ export default {
     updatePageSettings: function() {
       if (this.$route.query.page) {
         var pageConfig = this.$app.getPage(this.$route.query.page);
+        if (! pageConfig) {
+          this.currentPage = false;
+          return;
+        }
+        this.currentPage = true;
         this.pageSettings.path = pageConfig.path;
         this.pageSettings.label = pageConfig.label;
         this.pageSettings.layout = pageConfig.layout;
@@ -126,6 +136,7 @@ export default {
         this.pageSettings.folder = pageConfig.folder;
         if (!this.pageSettings.roles) this.pageSettings.roles = [];
       } else {
+        this.currentPage = true;
         this.pageSettings.path = "";
         this.pageSettings.label = "";
         this.pageSettings.layout = "";

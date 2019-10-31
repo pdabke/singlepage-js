@@ -171,6 +171,15 @@ following styles limit the display width.
   margin-bottom: 20px;
 }
 
+/* Set margin for last component in row or column to 0. Especially helps with full height layouts
+ * that use min-height to be vh100 in not showing a scrollbar.
+ */
+
+.sp-component:last-of-type {
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
+
 .sp-select-component {
   border: 2px solid lightblue;
 }
@@ -290,15 +299,9 @@ following styles limit the display width.
   animation-delay: -0.2s !important; 
 }
 
-.fade-enter-active {
-  transition: opacity 0.7s;
-  transition-delay: 0.7s;
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
 }
-
-.fade-leave-active {
-  transition: opacity 0.7s;
-}
-
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }

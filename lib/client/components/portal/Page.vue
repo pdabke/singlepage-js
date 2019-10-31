@@ -7,7 +7,7 @@
  -->
 
 <template>
-  <div :class="config.class == 'sp-sidebar-nav' ? config.wrapperclass : config.class">
+  <div :class="config.class == 'sp-sidebar-nav' ? config.wrapperclass : config.class" :key="path ? path : config.path">
     <sp-page v-for="container in config.containers" :key="container.id" :config="container" :target="target" :path="path ? path : config.path"></sp-page>
     <template v-if="config.class == 'sp-sidebar-nav'">
       <div :class="config.sidebarclass">
@@ -41,7 +41,9 @@
       </div>
       <div :class="config.contentclass">
         <template v-if="targetComponent">
-        <sp-component :component="targetComponent" :id="'sbcomp-' + targetComponentId" drag-disabled="true"></sp-component>
+          <transition name="fade">
+            <sp-component :component="targetComponent" :id="'sbcomp-' + targetComponentId" drag-disabled="true" :key="targetComponentId"></sp-component>
+          </transition>
         </template>
         <div v-else-if="$app.user" class="py-4 px-2 d-flex align-items-center justify-content-center text-muted">
           <i class="material-icons md-36 mr-3" style="color:red;">warning</i>{{$i18n('error_missing_menu_component')}}

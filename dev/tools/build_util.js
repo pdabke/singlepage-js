@@ -189,7 +189,7 @@ function extractObject(code, open, close) {
 }
 
 function htmlToJson(filePath) {
-  var html = fs.readFileSync(filePath, 'UTF-8');
+  var html = fs.readFileSync(filePath, 'utf-8');
   let df = parse5.parseFragment(html);
   let json = [];
   let id = [];

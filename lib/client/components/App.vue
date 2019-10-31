@@ -42,7 +42,7 @@
     <footer class="footer" v-if="$root.showApp">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 h-100 text-center text-sm-left my-auto small">
+          <div class="col-md-6 h-100 text-center text-sm-left my-auto small">
             <ul class="list-inline mb-2">
               <li class="list-inline-item">
                 <a href="http://www.nabh.com/tou.html">Terms of Use</a>

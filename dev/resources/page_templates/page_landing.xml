@@ -1,17 +1,8 @@
-  <div>
-  <!-- Header -->
-  <header>
-  </header>
+<div class="pb-4">
+  <header></header>
 
   <!-- Page Content -->
   <div class="container">
-
-    <!-- /.row -->
-
-    <div class="row justify-content-between flex-row align-items-stretch" cclass="col-md m-md-3">
-    </div>
-    <!-- /.row -->
-
+    <div class="row justify-content-between flex-row align-items-stretch" cclass="col-md m-md-3"></div>
   </div>
-  <!-- /.container -->
 </div>

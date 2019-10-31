@@ -71,3 +71,14 @@ Release 0.3.3
 Release 0.3.4
 - Fixed a bug which was causing files in assets directory not being served 
   correctly in development mode
+
+Release 0.3.5
+- Last component now has zero margin to allow for full page displays without 
+  scrollbars
+- Adjusted padding of most page layouts
+- Fixes footer left alignment in default App
+- Fixed page transitions by adding :key to Page.vue
+- Added the ability show dropup in Dropdown.vue via valign prop
+- Fixed a bug in PageEditor.vue when the option was selected from an admin page 
+  (as opposed to editable portal page)
+- Fixed sticky prelogin component state after login redirect

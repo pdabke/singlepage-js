@@ -7,7 +7,7 @@
  -->
 
 <template>
-  <li v-if="type == 'list'" class="dropdown" @click.prevent="toggleDropdown" v-click-outside="hideDropdown">
+  <li v-if="type == 'list'" :class="valign == 'up' ? 'dropup' : 'dropdown'" @click.prevent="toggleDropdown" v-click-outside="hideDropdown">
       <slot></slot>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" :class="{'dropdown-menu-right': align == 'right', 'show': showDropdown}">
         <a v-for="item in items" :key="item.label" class="dropdown-item" href="#" @click.stop.prevent="handleClick(item)">{{$i18n(item.label)}}</a>
@@ -27,7 +27,7 @@ export default {
   directives: {
     ClickOutside: SPClickOutside
   },
-  props: ["items", 'align', 'type'],
+  props: ["items", 'align', 'valign', 'type'],
   data: function() {
     return { showDropdown: false };
   },

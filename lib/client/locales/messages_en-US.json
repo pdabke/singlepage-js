@@ -201,7 +201,7 @@
   "error_invalid_email": "Invalid email address.",
   "error_invalid_value": "Invalid value",
   "error_login_required": "You must be logged in to complete this request.",
-
+  "error_cannot_edit_current_page": "Please view a regular portal page and click on this option to edit page metadata.",
   "error_missing_menu_component": "Sorry! We could not find the content you were looking for.",
   "error_missing_menu_component_unlogged_user": "We could not find the content you were looking for. You can try logging in and coming back to this page.",
   "error_avatar_upload_failed": "Sorry! Failed to upload your avatar image.",
