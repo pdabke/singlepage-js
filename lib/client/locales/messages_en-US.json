@@ -7,7 +7,8 @@
   "msg_yes": "Yes",
   "msg_no": "No",
   "msg_add": "Add",
-
+  "msg_reset": "Reset",
+  
   "msg_confirm_delete_named_entity": "Are you sure you want to delete {entity} <em>{name}</em>?",
   "msg_delete_entity": "Delete {entity}",
 
