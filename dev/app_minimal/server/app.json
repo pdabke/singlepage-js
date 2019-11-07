@@ -49,7 +49,7 @@
                         "id": 39,
                         "name": "SpHtml",
                         "config": {
-                          "content": "<div class=\"text-center\">\n<i class=\"material-icons md-64 p-4 text-danger\">\nlock_open\n</i>\n<h2>Open Source</h2>\n<div class=\"lead text-muted px-2 py-4\">\nReleased under MIT license. Use in open source or commercial projects.\n</div>\n</div>"
+                          "content": "<div class=\"text-center\">\n<img class=\"py-4\" src=\"{{CDN_URL}}/images/lockopen.svg\">\n<h2>Open Source</h2>\n<div class=\"lead text-muted px-2 py-4\">\nReleased under MIT license. Use in open source or commercial projects.\n</div>\n</div>"
                         },
                         "roles": [],
                         "template": "note-default"
@@ -58,7 +58,7 @@
                         "id": 40,
                         "name": "SpHtml",
                         "config": {
-                          "content": "<div class=\"text-center\">\n<i class=\"material-icons md-64 p-4 text-danger\">\ncode\n</i>\n<h2>Productivity</h2>\n<div class=\"lead text-muted py-4 px-2\">\nFocus on functionality. Leave the rest to the framework. \n</div>\n</div>"
+                          "content": "<div class=\"text-center\">\n<img class=\"py-4\" src=\"{{CDN_URL}}/images/code.svg\">\n<h2>Productivity</h2>\n<div class=\"lead text-muted py-4 px-2\">\nFocus on functionality. Leave the rest to the framework. \n</div>\n</div>"
                         },
                         "roles": [],
                         "template": "note-default"
@@ -67,7 +67,7 @@
                         "id": 41,
                         "name": "SpHtml",
                         "config": {
-                          "content": "<div class=\"text-center\">\n<i class=\"material-icons md-64 p-4 text-danger\">\nshare\n</i>\n<h2>Community</h2>\n<div class=\"lead text-muted px-2 py-4\">\nShare components, services, even complete applications with others.\n</div>\n</div>"
+                          "content": "<div class=\"text-center\">\n<img class=\"py-4\" src=\"{{CDN_URL}}/images/share.svg\">\n<h2>Community</h2>\n<div class=\"lead text-muted px-2 py-4\">\nShare components, services, even complete applications with others.\n</div>\n</div>"
                         },
                         "roles": []
                       }

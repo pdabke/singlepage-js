@@ -33,3 +33,7 @@ revisit Loader.vue
 Top menu links that point to external URL
 Write portal admin guide
 Graceful error message when livereload port is busy
+When you refresh one of the admin pages, you get page not found error since by default the edit mode is off. In this case
+we should change the mode to edit and show the page
+Add "update" options to singlepage global command that replaces spserver and spapp.esm with the current versions.
+Allow "singlepage build" to specify a different dist directory with a force option

@@ -46,10 +46,10 @@
           </transition>
         </template>
         <div v-else-if="$app.user" class="py-4 px-2 d-flex align-items-center justify-content-center text-muted">
-          <i class="material-icons md-36 mr-3" style="color:red;">warning</i>{{$i18n('error_missing_menu_component')}}
+          <img class="mr-2" :src="$app.config.CDN_URL + '/images/alert.svg'" draggable="false">{{$i18n('error_missing_menu_component')}}
         </div>
         <div v-else class="py-4 px-2 d-flex align-items-center justify-content-center text-muted">
-          <i class="material-icons md-36 mr-3" style="color:red;">warning</i>{{$i18n('error_missing_menu_component_unlogged_user')}}
+          <img class="mr-2" :src="$app.config.CDN_URL + '/images/alert.svg'" draggable="false">{{$i18n('error_missing_menu_component_unlogged_user')}}
         </div>
       </div>
     </template>
