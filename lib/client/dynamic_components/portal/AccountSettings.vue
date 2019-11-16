@@ -8,10 +8,11 @@
 <template>
 	<div class="sp-one-column-container mt-3">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col">
         <div class="border-light card">
           <div class="card-body">
-            <h1 class="mb-4">{{$root.$i18n('msg_account_settings')}}</h1> 
+            <h4 class="mb-4">{{$i18n('msg_account_settings')}}</h4> 
+            <div class="alert alert-danger">Account settings functionality is under construction.</div>
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-update-profile-tab" data-toggle="tab" href="#nav-update-profile" 
@@ -48,8 +49,8 @@
                      <button type="submit" @click.prevent="uploadAvatar" class="btn btn-primary">{{$i18n('msg_upload_avatar')}}</button>
                   </form>                 
                   <div class="mb-2 pt-4 pb-4 bg-light text-center">
-                    <span class="img-thumbnail d-inline-block mr-3"><img :src="$root.userInfo.avatarURL" class="sp-avatar-md"></span>
-                    <span class="img-thumbnail d-inline-block"><img :src="$root.userInfo.avatarURL" class="sp-avatar-sm"></span>
+                    <span class="img-thumbnail d-inline-block mr-3"><img :src="$app.user.avatarURL" class="sp-avatar-md"></span>
+                    <span class="img-thumbnail d-inline-block"><img :src="$app.user.avatarURL" class="sp-avatar-sm"></span>
                   </div>
                </div>
               </div>
@@ -166,8 +167,8 @@ export default {
     },
 
     avatarSuccess: function(resp) {
-      this.$root.userInfo.avatarURL = resp;
-      this.$root.modal.showDialog(
+      this.$app.userInfo.avatarURL = resp;
+      this.$app.modal.showDialog(
         "msg_success",
         "msg_avatar_upload_successful"
       );

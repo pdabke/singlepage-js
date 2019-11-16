@@ -11,7 +11,7 @@
       <div class="line-scale-pulse-out"><div></div><div></div><div></div></div>
     </div>
     <div v-if="error && !errorCb">
-      <div class="middle">
+      <div class="p-4">
         <div class="text-danger">{{$i18n(error)}}</div>
         <div class="text-center" v-if="this.errorCode == this.$root.constants.RETURN_INTERNAL_ERROR || 
           this.errorCode == this.$root.constants.RETURN_NO_CONNECTION">

@@ -22,34 +22,6 @@ browsers. */
   z-index: 990;
 }
 
-/* Good way of centering content both horizontally and vertically */
-.middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-}
-
-/* Sizing of material icons */
-.material-icons.md-12 { font-size: 12px; }
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.md-64 { font-size: 64px; }
-
-/*
-Styling of Terms of Use IFrame
-*/
-.sp-tou {
-  margin: 40px auto 20px auto;
-  height: 400px;
-  display: block;
-  padding: 5px;
-  border: 1px solid #e6e6e6;
-}
-
 /* Sticky footer styles. Makes sure the footer sticks to the bottom when the page content height is small. */
 
 html {
@@ -62,12 +34,61 @@ html {
   bottom: 0;
   width: 100%;
   height: 70px;
-  margin-top: 25px;
 }
 
-body {
-  margin-bottom: 70px;
+/* Prevents footer text overlapping with main text when the page height is too
+ * small to accomodate page content. Use sp-center-content-with-footer on
+ * centered content on a page that has footer.
+ */
+.sp-app-with-footer, .sp-centered-content-with-footer {
+  margin-bottom: 90px;
 }
+
+/* The following assumes header height of 60px and footer space of 90px */
+.sp-center-content-with-header-footer {
+  min-height: calc(100vh - 250px)
+}
+
+/* Pages that occupy the entire viewport (e.g. splash page, login/logout etc. */
+
+/* Use this when you know the content can fit on a page. This works universally as 
+* compared to sp-full-viewport that uses vh units and has problems on mobile browsers
+* as 100vh often corresponds to a height that is bigger than the visible part of the
+* Web browser.
+*/
+.sp-full-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 980;
+}
+
+/* Use this when the app content may not fit the screen height Note that we set the
+ * to be 100px less than viewport height to account for mobile browser viewport 
+ * size issues. Mobile browsers return viewport size that is bigger than the initial
+ * visible area. That hides a footer if it is shown. On bigger desktop screens, 
+ * this still looks close to being centered.
+ */
+.sp-full-viewport {
+  min-height: calc(100vh - 100px);
+}
+
+/* Class that centers content horizontally and vertically */
+.sp-center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sp-splash {
+  background: linear-gradient(135deg, #4fe2ec 0%, #dbeef4 100%);
+}
+
 /* End Sticky footer styles */
 
 /* Used to specify unstyled component body, header, etc. */
@@ -119,37 +140,19 @@ following styles limit the display width.
   }
 }
 
-/*
- Pages that occupy the entire viewport (e.g. splash page, login/logout etc.
- */
-.sp-splash {
-  /*
-  background: transparent radial-gradient(circle farthest-side at right bottom,#ce5000 5%,#e36400 25%,#e36400 80%,#d25200 98%,#d05000) repeat scroll 0 0;
-  background: transparent radial-gradient(circle farthest-side at right bottom,#ce5000 5%,#e36400 25%,#e36400 80%,#d25200 98%,#d05000) repeat scroll 0 0;
-  */
-  background: linear-gradient(135deg, #4fe2ec 0%, #dbeef4 100%);
-
-}
-.sp-full-page {
-  /* background-color: #ECF4BA; */
-  /* background: linear-gradient(20deg, #c0392b 0%, #ff6c4c 50%, #c0392b 100%); */
-  text-align: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 980;
-  margin-bottom: 0 !important; /* Takes care of bottom margin on the body */
-}
-
-.sp-login {
+.sp-login-card {
   margin: 0 auto; 
-  max-width: 300px; 
+  width: 100%; 
   text-align: left;
   padding: 30px;
+}
+
+@media (min-width: 576px) {
+  .sp-login-card {
+    max-width: 300px;
+    background-color: white;
+    margin-top: 20px;
+  }
 }
 
 .navbar-brand img {
@@ -168,16 +171,15 @@ following styles limit the display width.
 }
 
 .sp-component {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
-/* Set margin for last component in row or column to 0. Especially helps with full height layouts
+/* Set margin for last component in column to 0. Especially helps with full height layouts
  * that use min-height to be vh100 in not showing a scrollbar.
  */
 
 .sp-component:last-of-type {
   margin-bottom: 0px;
-  margin-right: 0px;
 }
 
 .sp-select-component {

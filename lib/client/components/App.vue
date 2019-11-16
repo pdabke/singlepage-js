@@ -7,7 +7,7 @@
  -->
 
 <template>
-  <div>
+  <div :class="{ 'sp-app-with-footer': $root.showApp }">
     <div v-if="$root.showApp" class="navbar navbar-expand-md navbar-light text-primary">
       <div class="container">
         <a href="#/" class="navbar-brand active"><img :src="$root.site.logoURL" alt /></a>
@@ -25,7 +25,7 @@
             </button>
           </sp-dropdown>
           <template v-else>
-            <li class="nav-item">
+            <li v-if="$app.config.IS_MULTI_USER" class="nav-item">
               <a class="btn btn-primary" href="#" @click.prevent.stop="$app.showLoginPage()">{{$i18n('msg_login')}}</a>
             </li>
             <li v-if="$app.config.IS_SELF_REGISTRATION_ALLOWED" class="nav-item">
@@ -36,13 +36,13 @@
         </div>
       </div>
     </div>
-    <transition name="fade">
+    <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
     <footer class="footer" v-if="$root.showApp">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 h-100 text-center text-sm-left my-auto small">
+          <div class="col-md-6 h-100 text-center text-md-left my-auto small">
             <ul class="list-inline mb-2">
               <li class="list-inline-item">
                 <a href="http://www.nabh.com/tou.html">Terms of Use</a>

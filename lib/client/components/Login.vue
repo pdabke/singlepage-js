@@ -7,12 +7,12 @@
  -->
 
 <template>
-  <div>
-    <div class="d-flex justify-content-center p-4">
+  <div class="sp-full-viewport sp-center-content">
+    <div class="pb-2">
       <img :src="logoUrl" class="sp-logo"/>
     </div>
-    <div class="card bg-light sp-login">
-      <h4 class="card-title mb-5 text-center">{{$i18n('msg_login')}}</h4>
+    <div class="sp-login-card">
+      <h4 class="card-title mb-4 text-center">{{$i18n('msg_login')}}</h4>
       <div id="form-login-1">
         <form name="form-login" method="POST">
           <div class="form-group">

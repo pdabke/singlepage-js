@@ -32,10 +32,10 @@
           <a v-for="(link, index) in $root.userLinks" :key="index" class="nav-link px-4" href="#"
             @click.prevent="loadPage(link.path, link.callback)">{{$i18n(link.label)}}</a>
         </template>
-        <template v-else>
+        <template v-else-if="$app.config.IS_MULTI_USER">
           <div class="mx-4 border-top border-info"></div>
-          <a v-if="$app.config.IS_MULTI_USER"
-          class="nav-link px-4" href="#" @click.prevent.stop="$app.showLoginPage()">{{$i18n('msg_login')}}</a>
+          <a 
+          class="nav-link px-4" href="#" @click.prevent.stop="showLogin">{{$i18n('msg_login')}}</a>
           <a v-if="$app.config.IS_SELF_REGISTRATION_ALLOWED" class="nav-link px-4" href="#" 
           @click.prevent.stop="$app.showRegistrationPage()">{{$i18n('msg_register')}}</a>
         </template>
@@ -62,6 +62,10 @@ export default {
         } else {
           cb();
         }
+    },
+    showLogin() {
+      this.hideModal();
+      this.$app.showLoginPage()
     },
 
     topLevelPages: function(pages) {

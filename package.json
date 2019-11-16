@@ -1,6 +1,6 @@
 {
   "name": "singlepage-js",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "author": "Padmanabh Dabke",
   "keywords": [
     "portal framework",
@@ -36,6 +36,7 @@
     "lru-cache": "^5.1.1",
     "mime-types": "^2.1.24",
     "mustache": "^3.0.1",
+    "node-fetch": "^2.6.0",
     "nodemailer": "^6.3.0",
     "parse5": "^5.1.0",
     "rollup": "^1.17.0",

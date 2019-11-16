@@ -7,35 +7,36 @@
  -->
 
 <template>
-  <sp-fetcher :data-source="feedUrl" :fetch-data="loadFeed" :loaded="loaded" :error="error">
-    <ul class="list-group list-group-flush">
-      <li v-for="hl in headlines" :key="hl.id" class="list-group-item">
-        <div class="bm-1">
-        <a :href="hl.link" target="_blank">{{hl.title}}</a>
-        <br />
-        <span class="small">{{hl.pubDate}}</span>
-        </div>
-        <div v-html="hl.description"></div>
-        <div class="text-center py-2 " v-if="hl.enclosure">
-          <audio v-if="hl.enclosure['@attributes'].type && hl.enclosure['@attributes'].type.startsWith('audio')"
-            controls :src="hl.enclosure['@attributes'].url" :type="hl.enclosure['@attributes'].type">Your browser does not support embedded audio.</audio>
-          <embed v-else
-            controls :src="hl.enclosure['@attributes'].url" :type="hl.enclosure['@attributes'].type">
-        </div>
-      </li>
-      <li v-if="copyright" class="list-group-item small" v-html="copyright">
-      </li>
-    </ul>
-  </sp-fetcher>
+  <div v-if="error" class="sp-error">{{$i18n(error)}}</div>
+  <div v-else-if="!loaded" class="sp-loading">
+    <div class="line-scale-pulse-out">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <ul v-else class="list-group list-group-flush">
+    <li v-for="hl in headlines" :key="hl.id" class="list-group-item">
+      <div class="bm-1">
+      <a :href="hl.link" target="_blank">{{hl.title}}</a>
+      <br />
+      <span class="small">{{hl.pubDate}}</span>
+      </div>
+      <div v-html="hl.description"></div>
+      <div class="text-center py-2 " v-if="hl.enclosure">
+        <audio v-if="hl.enclosure['@attributes'].type && hl.enclosure['@attributes'].type.startsWith('audio')"
+          controls :src="hl.enclosure['@attributes'].url" :type="hl.enclosure['@attributes'].type">Your browser does not support embedded audio.</audio>
+        <embed v-else
+          controls :src="hl.enclosure['@attributes'].url" :type="hl.enclosure['@attributes'].type">
+      </div>
+    </li>
+    <li v-if="copyright" class="list-group-item small" v-html="copyright">
+    </li>
+  </ul>
 </template>
 <script>
 "use strict";
-import Fetcher from '../../components/util/Fetcher.vue';
 export default {
-  components: {
-    "sp-fetcher": Fetcher
-  },
-
   props: ["feedUrl"],
 
   data: function() {
@@ -56,6 +57,12 @@ export default {
       ]
     };
   },
+
+  mounted: function() {
+    this.loading = true;
+    this.loadFeed();
+  },
+
   methods: {
     linkify: function(str) {
       return anchorme(str);
@@ -64,28 +71,10 @@ export default {
       let url = this.feedUrl
         ? this.feedUrl
         : "https://www.npr.org/rss/podcast.php?id=510298";
-      var comp = this;
-      fetch("https://cors-anywhere.herokuapp.com/" + url)
-        .then(function(response) {
-          let contentType = response.headers.get('Content-Type');
-          if (contentType && contentType.indexOf('8859-1') > 0) {
-            response.arrayBuffer().then(function(buffer) {
-              try {
-                let text = String.fromCharCode.apply(null, new Uint8Array(buffer));
-                comp.parseRSS(text, comp);
-              } catch (eee) {
-
-              }
-            }).catch(function(ee) { comp.error = ee})
-          } else {
-            response.text().then(function(respText) { comp.parseRSS(respText, comp);});
-          }
-        })
-        .catch(function(e) {
-          comp.error = e;
-        });
+      this.$app.rpc.invoke('URLFetcher', 'fetch', { url: url}, this.fetchSuccess.bind(this), this.fetchError);
     },
-    parseRSS: function(responseTxt, comp) {
+
+    fetchSuccess: function(responseTxt) {
             
       try {
         var parser = new DOMParser();
@@ -96,21 +85,26 @@ export default {
         var articles = [];
         var len = items.length > 5 ? 5 : items.length;
         for (let ii = 0; ii < len; ii++) {
-          let item = comp.xmlToJson(items[ii]);
+          let item = this.xmlToJson(items[ii]);
           if (!item.pubDate) item.pubDate = item['dc:date'];
           item.id = ii;
           articles.push(item);
         }
         var cr = xmlDoc.getElementsByTagName("copyright");
-        if (cr.length > 0) comp.copyright = cr[0].textContent;
+        if (cr.length > 0) this.copyright = cr[0].textContent;
 
-        comp.headlines = articles;
-        comp.$emit("update:title", title);
-        comp.loaded = true;
+        this.headlines = articles;
+        this.$emit("update:title", title);
+        this.loaded = true;
       } catch (e) {
         console.log(e);
-        comp.error = e;
+        this.error = e;
       }
+    },
+
+    fetchError: function(status, errorMsg /*,  result */) {
+      this.error = errorMsg;
+      this.loading = false;
     },
 
     timeAgo: function(time) {

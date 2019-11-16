@@ -9,7 +9,6 @@
 <template>
   <div
     :id="'comp-' + component.id"
-    class="sp-component"
     v-bind:class="componentClass"
     :draggable="isDraggable()"
     @drop="drop($event)"
@@ -248,7 +247,7 @@ export default {
       if (!t) {
         t = "note-default";
       }
-      return this.$app.componentTemplates.getTemplate(t).componentClass + (this.cclass ? ' ' + this.cclass : '');
+      return this.$app.componentTemplates.getTemplate(t).componentClass + (this.cclass ? ' ' + this.cclass : ' sp-component');
     },
     headerClass: function() {
       // return this.computeClass(this.component.componentClass, this.componentClass, 'card border-light mb-3');

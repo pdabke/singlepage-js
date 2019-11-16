@@ -27,7 +27,7 @@
                     "id": 38,
                     "name": "SpHtml",
                     "config": {
-                      "content": "<div class=\"bg-warning\">\n  <div class=\"container\">\n    <div class=\"d-md-flex flex-row justify-content-center align-items-center\">\n        <img style=\"max-width: 500px; height: auto;\" class=\"p-3 p-md-5 embed-responsive\" src=\"{{CDN_URL}}/images/landing.svg\">\n        <div class=\"p-4\">\n            <div class=\"sp-display-4 text-white text-center text-sm-left\" >Singlepage.js</div>\n            <div class=\"sp-lead text-white text-center text-sm-left\" >A Javascript portal framework for building modular Web applications</div>\n        </div>\n   </div>\n </div>\n</div>\n"
+                      "content": "<div class=\"bg-warning\">\n  <div class=\"container\">\n    <div class=\"d-flex flex-column flex-md-row justify-content-center align-items-center text-center\">\n        <img style=\"max-width: 500px; height: auto;\" class=\"p-3 p-md-5 embed-responsive\" src=\"{{CDN_URL}}/images/landing.svg\">\n        <div class=\"p-4 text-center text-md-left text-white\">\n            <div class=\"sp-display-4 mb-2\" >Singlepage.js</div>\n            <div class=\"sp-lead \" >A Javascript portal framework for building modular Web applications</div>\n        </div>\n   </div>\n </div>\n</div>\n"
                     },
                     "roles": [],
                     "template": "blank"
@@ -40,7 +40,7 @@
                 "id": 102,
                 "components": [],
                 "tagName": "div",
-                "class": "container",
+                "class": "container mt-0 mt-md-4",
                 "containers": [
                   {
                     "id": 103,
@@ -74,7 +74,7 @@
                     ],
                     "tagName": "div",
                     "class": "row justify-content-between flex-row align-items-stretch",
-                    "cclass": "col-md m-md-3",
+                    "cclass": "flex-grow-1 col-md m-3",
                     "containers": []
                   }
                 ]
@@ -191,6 +191,15 @@
                         "template": "blank"
                       },
                       {
+                        "id": 1,
+                        "name": "SpHtml",
+                        "template": "jumbotron",
+                        "config": {
+                          "content": "<h1>You can edit this content by turning the edit mode on. Let's see if this works.</h1>"
+                        },
+                        "roles": []
+                      },
+                      {
                         "id": 11,
                         "name": "SpHtml",
                         "title": "Jumbotron",
@@ -199,19 +208,10 @@
                           "content": "<p class=\"lead\">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>\n  <hr class=\"my-4\">\n  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>\n  <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a>"
                         },
                         "roles": []
-                      },
-                      {
-                        "id": 1,
-                        "name": "SpHtml",
-                        "template": "jumbotron",
-                        "config": {
-                          "content": "<h1>You can edit this content by turning the edit mode on. Let's see if this works.</h1>"
-                        },
-                        "roles": []
                       }
                     ],
                     "tagName": "div",
-                    "class": "col-md-4",
+                    "class": "col-md-4 mt-3 mt-md-0",
                     "containers": []
                   },
                   {
@@ -238,18 +238,6 @@
                         "roles": []
                       },
                       {
-                        "id": 2,
-                        "name": "SpHtml",
-                        "template": "card-warning",
-                        "title": "Warning Card",
-                        "config": {
-                          "content": "You can edit this content by turning the edit mode on."
-                        },
-                        "roles": [
-                          "SUPERADMIN"
-                        ]
-                      },
-                      {
                         "id": 9,
                         "name": "SpHtml",
                         "title": "Danger Card",
@@ -260,6 +248,14 @@
                         "roles": []
                       },
                       {
+                        "id": 35,
+                        "name": "SpHelloWorld",
+                        "config": {},
+                        "roles": [],
+                        "template": "card-light",
+                        "title": "Light Card"
+                      },
+                      {
                         "id": 36,
                         "name": "SpHelloWorld",
                         "config": {},
@@ -268,16 +264,20 @@
                         "template": "card-dark"
                       },
                       {
-                        "id": 35,
-                        "name": "SpHelloWorld",
-                        "config": {},
-                        "roles": [],
-                        "template": "card-light",
-                        "title": "Light Card"
+                        "id": 2,
+                        "name": "SpHtml",
+                        "template": "card-warning",
+                        "title": "Warning Card",
+                        "config": {
+                          "content": "You can edit this content by turning the edit mode on."
+                        },
+                        "roles": [
+                          "SUPERADMIN"
+                        ]
                       }
                     ],
                     "tagName": "div",
-                    "class": "col-md-4",
+                    "class": "col-md-4 mt-3 mt-md-0",
                     "containers": []
                   }
                 ]
@@ -335,7 +335,7 @@
                 "tagName": "div",
                 "class": "sp-sidebar-nav",
                 "wrapperclass": "row",
-                "sidebarclass": "col-md-3",
+                "sidebarclass": "col-md-3 mb-3 mb-md-0",
                 "contentclass": "col-md-9",
                 "containers": []
               }
@@ -396,7 +396,7 @@
                           }
                         ],
                         "tagName": "div",
-                        "class": "col-md-4",
+                        "class": "col-md-4 mt-3 mt-md-0",
                         "containers": []
                       }
                     ]
@@ -455,7 +455,7 @@
                           }
                         ],
                         "tagName": "div",
-                        "class": "col-md-6",
+                        "class": "col-md-6 mt-3 mt-md-0",
                         "containers": []
                       }
                     ]

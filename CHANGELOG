@@ -90,3 +90,23 @@ Release 0.3.7
 - Eliminated dependency on Google icons
 - If user refreshes or directly visits an admin page, it now shows correctly.
   Previously it showed "Page Not Found"
+Release 0.3.8
+- Modified splash content of demo app to show better on smaller screens
+- Cleaned up sp.css and streamlined CSS classes related to full page and
+  login/logout layouts. The class "middle" is now removed from sp.css. 
+- Updated App.vue to show Login button only when IS_MULTI_USER flag in 
+  configuration is set to true
+- Changed default value of IS_MULTI_USER to true (even though we don't 
+  support the mode yet) so that the developer sees the Login button
+- Styling of Login card now be changed by modifying sp-login-card class
+  in sp.css
+- Modified Component.vue to NOT append 'sp-component' class to custom 
+  classes specified via cclass attribute in the page layout definition
+- Fixed a bug where the sidebar menu was not closing after selecting Login
+- RSSViewer component now calls URLFetcher service to get the RSS content
+  instead of relying on a CORS proxy
+- Removed "flex-grow-1" class from all component templates. Developers can
+  add that class (needed for uniformly sized components in a row) to the
+  "cclass" attribute of the container in the layout.
+- Added "URLFetcher" service that can fetch and return contents of a URL.
+  Currently it is used by the RSSViewer component.
