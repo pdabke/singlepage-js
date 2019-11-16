@@ -90,6 +90,7 @@ Release 0.3.7
 - Eliminated dependency on Google icons
 - If user refreshes or directly visits an admin page, it now shows correctly.
   Previously it showed "Page Not Found"
+
 Release 0.3.8
 - Modified splash content of demo app to show better on smaller screens
 - Cleaned up sp.css and streamlined CSS classes related to full page and
@@ -110,3 +111,8 @@ Release 0.3.8
   "cclass" attribute of the container in the layout.
 - Added "URLFetcher" service that can fetch and return contents of a URL.
   Currently it is used by the RSSViewer component.
+
+Release 0.3.9
+- Added node-fetch to rollup's externals to prevent related error message
+- Fixed rollup-plugin-vue version to 5.1.1 since 5.1.2 version introduced
+  a bug or incompatibility
