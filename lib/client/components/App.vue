@@ -10,7 +10,7 @@
   <div :class="{ 'sp-app-with-footer': $root.showApp }">
     <div v-if="$root.showApp" class="navbar navbar-expand-md navbar-light text-primary">
       <div class="container">
-        <a href="#/" class="navbar-brand active"><img :src="$root.site.logoURL" alt /></a>
+        <a href="#/" alt="Home" class="navbar-brand active"><img :src="$root.site.logoURL" alt="Site Logo" /></a>
         <button type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
           <span class="navbar-toggler-icon" @click.prevent="$app.toggleSidebar()"></span>
         </button>
@@ -45,10 +45,10 @@
           <div class="col-md-6 h-100 text-center text-md-left my-auto small">
             <ul class="list-inline mb-2">
               <li class="list-inline-item">
-                <a href="http://www.nabh.com/tou.html">Terms of Use</a>
+                <a href="http://www.nabh.com/terms_of_use.html">Terms of Use</a>
               </li>
               <li class="list-inline-item">
-                <a href="http://www.nabh.com/pp.html">Privacy Policy</a>
+                <a href="http://www.nabh.com/privacy.html">Privacy Policy</a>
               </li>
               <li class="list-inline-item">
                 <a href="mailto:info@nabh.com">Contact Us</a>

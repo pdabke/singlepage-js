@@ -79,7 +79,7 @@ Release 0.3.5
 - Fixes footer left alignment in default App
 - Fixed page transitions by adding :key to Page.vue
 - Added the ability show dropup in Dropdown.vue via valign prop
-- Fixed a bug in PageEditor.vue when the option was selected from an admin page 
+- Fixed a bug in PageEditor.vue when the option was selected from an admin page
   (as opposed to editable portal page)
 - Fixed sticky prelogin component state after login redirect
 
@@ -116,3 +116,30 @@ Release 0.3.9
 - Added node-fetch to rollup's externals to prevent related error message
 - Fixed rollup-plugin-vue version to 5.1.1 since 5.1.2 version introduced
   a bug or incompatibility
+
+Release 0.4.0
+- Added icons and manifest.json for partial PWA support
+- Separated essential CSS into sp.css file that is loaded directly and the rest
+  of the css is now loaded via splib.js This change was prompted by a bug in
+  cssnano used by postcss plugin that causes invalid normalization of 
+  background-position. See more details in rollup.config.js
+- Minor CSS and content changes to make the demo app score 100% on 
+  accessibility in the lighthouse audit
+- Moved dropdown related CSS from bootstrap.css to its own file included in
+  Dropdown.vue
+- Moved nav tabs CSS from bootstrap.css to a nav.css included in Tabs.css
+- Added source scss files for bootstrap-reboot.css, bootstrap-grid.css, and
+  bootstrap.css
+- Fixed footer links for privacy policy and terms of use in App.vue
+- Added new Vue component sp-spinner
+- Added new Vue components: sp-tabs and sp-tab-pane
+- Dropdown component is now loaded dynamically
+- Requests for non-existent files are now logged, previously it was throwing
+  uncaught error
+- Fixed component styles to improve contrast so as to pass accessibility test
+- Removed references to alert related CSS classes from component templates. 
+- Defined new CSS classes sp-component-<variant> (variants: success, danger,
+  warning, info) that are used in corresponding note and card component 
+  templates
+- Added "update" option to singlepage command that updates Singlepage runtime
+  libraries in app's lib directory to the current version 

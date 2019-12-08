@@ -4,12 +4,18 @@
 var process = require('process');
 var program = require('commander');
 var Create = require('../dev/tools/create');
+var Update = require('../dev/tools/update');
 var Build = require('../dev/tools/build');
 var Serve = require('../dev/tools/serve');
+
 program
   .command('create <app-name>')
   .option('-f, --full', 'Create sample app files that override built-in functionality. If unspecified only minimal skeleton is generated.')
   .action(Create.handle);
+
+program
+  .command('update <app-dir>')
+  .action(Update.handle);
 
 program
   .command('build')

@@ -31,7 +31,7 @@
    line-height: 1.5;
    color: #212529;
    text-align: left;
-   background-color: #f3f6f9;
+   background-color: #f9f9f9;
  }
  
  [tabindex="-1"]:focus {
@@ -122,7 +122,7 @@
  }
  
  a {
-   color: #17a2b8;
+   color: #177e91;
    text-decoration: none;
    background-color: transparent;
  }

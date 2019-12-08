@@ -8,13 +8,7 @@
 
 <template>
   <div v-if="error" class="sp-error">{{$i18n(error)}}</div>
-  <div v-else-if="!loaded" class="sp-loading">
-    <div class="line-scale-pulse-out">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+  <sp-spinner v-else-if="!loaded"></sp-spinner>
   <ul v-else class="list-group list-group-flush">
     <li v-for="hl in headlines" :key="hl.id" class="list-group-item">
       <div class="bm-1">
@@ -39,6 +33,12 @@
 export default {
   props: ["feedUrl"],
 
+  watch: {
+    feedUrl: function() {
+      this.loadFeed();
+    }
+  },
+
   data: function() {
     return {
       loaded: false,
@@ -54,12 +54,16 @@ export default {
         ["%sw", "%sw"],
         ["%sm", "%sm"],
         ["%sy", "%sy"]
-      ]
+      ],
+      messages: {
+        "en-US": {
+          "error_domain_fetch_not_allowed": "Please contact your portal administrator to enable access to the current feed URL domain."
+        }
+      }
     };
   },
 
   mounted: function() {
-    this.loading = true;
     this.loadFeed();
   },
 
@@ -68,6 +72,7 @@ export default {
       return anchorme(str);
     },
     loadFeed: function() {
+      this.loading = true;
       let url = this.feedUrl
         ? this.feedUrl
         : "https://www.npr.org/rss/podcast.php?id=510298";

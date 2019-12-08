@@ -1,0 +1,98 @@
+//
+// Base styles
+//
+
+.sp-menubar-icon {
+  margin-top: -5px;
+  width: 24px;
+  height: 24px;
+}
+
+.sp-component {
+  margin-bottom: 1rem;
+}
+
+/* Set margin for last component in column to 0. Especially helps with full height layouts
+ * that use min-height to be vh100 in not showing a scrollbar.
+ */
+
+.sp-component:last-of-type {
+  margin-bottom: 0px;
+}
+
+.sp-select-component {
+  border: 2px solid $info;
+}
+
+.sp-component-action-menu {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  cursor: pointer;
+  z-index: 999;
+}
+/* End Component settings menu */
+
+/* Styles for drag-n-drop for moving widgets around */
+.sp-empty-column {
+  border: 3px dotted $info;
+  min-width: 50px !important;
+  min-height: 50px !important;
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+}
+.sp-last-component {
+  min-width: 20px;
+  min-height: 20px;
+  margin-top: -20px;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  padding: 15px;
+}
+.sp-last-page-tab {
+  min-width: 20px;
+  min-height: 20px;
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+$component-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$component-colors: map-merge(
+  (
+    //"primary":    $primary,
+    //"secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger
+    //"light":      $light,
+    //"dark":       $dark
+  ),
+  $component-colors
+);
+
+@mixin component-variant($background, $border, $color) {
+  color: $color;
+  @include gradient-bg($background);
+  border-color: $border;
+
+  //hr {
+  //  border-top-color: darken($border, 5%);
+  //}
+
+  //.alert-link {
+  //  color: darken($color, 10%);
+  //}
+}
+
+@each $color, $value in $component-colors {
+  .sp-component-#{$color} {
+    @include component-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+  }
+}

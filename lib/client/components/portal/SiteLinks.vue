@@ -33,11 +33,7 @@
 </template>
 <script>
 "use strict";
-import DropDown from '../util/Dropdown.vue';
 export default {
-  components: {
-    "sp-dropdown": DropDown
-  },
   props: ['editable', 'callback', 'ulClass', 'liClass', 'aClass'],
 
   computed: {

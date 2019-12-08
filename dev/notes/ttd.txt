@@ -38,8 +38,6 @@ we should change the mode to edit and show the page
 Add "update" options to singlepage global command that replaces spserver and spapp.esm with the current versions.
 Allow "singlepage build" to specify a different dist directory with a force option
 
-add spacing at the end of the column on mobile
-sidebar sliding menu does not close after clicking on log in
-The printer splash image in demo app is not centered on tablet
-make white log in card disappear on small devices
-Account management now appears on single-user mode
+revisit components for bootstrap suggestions on accessibility
+Clean up and compress sp.css
+Fix Sidebar.vue code so that it is easy to customize sidebar styling

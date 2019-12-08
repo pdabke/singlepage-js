@@ -11,7 +11,6 @@ import SPApp from '../lib/splib.esm.js';
 import './www/css/bootstrap-reboot.css'
 import './www/css/bootstrap-grid.css'
 import './www/css/bootstrap.css'
-import './www/css/sp.css';
 
 Vue.config.productionTip = false;
 

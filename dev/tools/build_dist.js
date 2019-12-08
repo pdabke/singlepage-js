@@ -13,6 +13,7 @@ const vue = require('rollup-plugin-vue');
 const commonjs = require('rollup-plugin-commonjs');
 const json = require('rollup-plugin-json');
 const noderesolve = require('rollup-plugin-node-resolve');
+const postcss = require('rollup-plugin-postcss');
 const { terser } = require("rollup-plugin-terser");
 
 const rootDir = path.resolve(__dirname, '..', '..');
@@ -89,10 +90,10 @@ var targets = [
       external: ["vue"],
       plugins: [
         noderesolve(),
-        commonjs(),
+        commonjs({sourceMap: false}),
         json(),
         vue()
-      ]
+        ]
     },
     output: {
       format: 'esm',
@@ -136,9 +137,10 @@ async function buildComponent(inputFile, outputDir, name) {
     input: inputFile,
     plugins: [
       noderesolve({ mainFields: ['module', 'main'] }),
-      commonjs(),
+      commonjs({sourceMap: false}),
       json(),
       vue(),
+      postcss(),
       terser()
     ]
   });

@@ -31,7 +31,7 @@
     -->
 
     <form>
-      <p><input name="input" class="form-control" v-model="msg"
+      <p><input name="input" class="form-control" v-model="msg" aria-label="Words to echo back from Echo Service"
       placeholder="Type words to echo back from EchoService"></p>
       <input type="submit" value="Echo" class="btn btn-primary" @click.prevent.stop="echoMessage">
     </form>

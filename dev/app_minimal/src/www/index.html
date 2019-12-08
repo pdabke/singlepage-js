@@ -5,21 +5,36 @@
     <title>{{SITE_TITLE}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="description" content="{{SITE_DESCR}}">
     <meta name="keywords" content="{{SITE_KEYWORDS}}">
     <meta name="author" content="{{SITE_AUTHOR}}">
+    <meta name="theme-color" content="#fff4d5"/>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{{CDN_URL}}}/lib/spapp.css" rel="stylesheet">
-    <link rel="icon" href="{{{CDN_URL}}}/favicon.ico">
+    <!- Meta tags for various mobile platforms -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="{{SITE_TITLE}}">
+    <meta name="apple-mobile-web-app-title" content="{{SITE_TITLE}}">
+    <meta name="msapplication-starturl" content="/">
 
+    <link rel="icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- icon in the highest resolution we need it for -->
+    <link rel="icon" sizes="192x192" href="android-chrome-192x192-spicon.png">
+
+    <!-- reuse same icon for Safari -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Minimal styles needed for initial layout -->
+    <link rel="stylesheet" href="{{{CDN_URL}}}/sp.css">
 </head>
 
 <body>
     <div id="app">
-            <div class="sp-full-page sp-splash">
-                <div id="sp-logo" class="middle fade show">
+            <div class="sp-full-page sp-splash sp-center-content">
+                <div id="sp-logo" class="fade show">
+                  <noscript><div class="p-4">Sorry! This appliction requires Javascript to be enabled in your browser.</div></noscript>
                     <img src="{{{CDN_URL}}}/images/app_logo.png" />
                 </div>
             </div>

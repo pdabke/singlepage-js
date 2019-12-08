@@ -231,9 +231,10 @@ async function buildComponent(inputFile, outputDir, outputFile, isProduction, is
     input: inputFile,
     plugins: [
       noderesolve({ mainFields: ['module', 'main'] }),
-      commonjs(),
+      commonjs({sourceMap: false}),
       json(),
       vue(),
+      postcss(),
       compress && (require('rollup-plugin-terser')).terser()
     ]
   });
@@ -274,12 +275,21 @@ async function buildLib(appBase, isProduction, isServe, distClientDir, compress)
       }),
 
       noderesolve(),
-      commonjs(),
+      commonjs({sourceMap: false}),
       vue(),
+      /* We now load CSS via Javascript. This may be a good idea regardless but the change was
+       * forced by a bug in nanocss compression and normalization of background-position property.
+       * It translates "center right" to "100% Calc(...)" which unfortunately results in a different
+       * spacing. The workaround is to set normalizePositions to false but it only works when
+       * CSS is loaded by JS. It does not work if extract is set to true since postcss does not
+       * pass the configuration parameters to nanocss in that case. The symptom was seen in 
+       * form validation icon positioning, the source is _forms.scss in bootstrap 4.3 source code.
+       */
       postcss({
-        extract: true,
-        minimize: compress //,
-        //sourceMap: !isProduction
+        extract: false,
+        minimize: {
+          preset: ['default', {normalizePositions: false}]
+        }
       }),
       compress && (require('rollup-plugin-terser')).terser()
     ]

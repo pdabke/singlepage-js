@@ -103,21 +103,11 @@ html {
   line-height: 1.2;
 }
 
-.sp-lead {
-  font-size: 0.75rem;
-  font-weight: 300;
-}
-
 @media (min-width: 576px) {
   .sp-display-4 {
     font-size: 3.5rem;
     font-weight: 300;
     line-height: 1.2;
-  }
-
-  .sp-lead {
-    font-size: 1.25rem;
-    font-weight: 300;
   }
 }
 
@@ -131,6 +121,7 @@ following styles limit the display width.
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 15px;
 }
 
 
@@ -162,63 +153,6 @@ following styles limit the display width.
 .sp-logo {
   max-height: 30px;
 }
-/* Component settings menu */
-
-.sp-menubar-icon {
-  margin-top: -5px;
-  width: 24px;
-  height: 24px;
-}
-
-.sp-component {
-  margin-bottom: 1rem;
-}
-
-/* Set margin for last component in column to 0. Especially helps with full height layouts
- * that use min-height to be vh100 in not showing a scrollbar.
- */
-
-.sp-component:last-of-type {
-  margin-bottom: 0px;
-}
-
-.sp-select-component {
-  border: 2px solid lightblue;
-}
-
-.sp-component-action-menu {
-  position: absolute;
-  top: 9px;
-  right: 9px;
-  cursor: pointer;
-  z-index: 999;
-}
-/* End Component settings menu */
-
-/* Styles for drag-n-drop for moving widgets around */
-.sp-empty-column {
-  border: 3px dotted lightblue;
-  min-width: 50px !important;
-  min-height: 50px !important;
-  margin-top: 0 !important;
-  margin-bottom: 20px !important;
-}
-.sp-last-component {
-  min-width: 20px;
-  min-height: 20px;
-  margin-top: -20px;
-  margin-bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666666;
-  padding: 15px;
-}
-.sp-last-page-tab {
-  min-width: 20px;
-  min-height: 20px;
-}
-/* End Styles for drag-n-drop for moving widgets around */
 
 /* Sidebar */
 .sp-sidebar {
@@ -257,53 +191,10 @@ following styles limit the display width.
 
 /* End styles for forms */
 
-/* Styles for Loader */
-.sp-loading {
-  padding: 10px;
-  text-align: center;
-}
-
-@-webkit-keyframes line-scale-pulse-out {
-  0% {
-    -webkit-transform: scaley(1);
-            transform: scaley(1); }
-  50% {
-    -webkit-transform: scaley(0.6);
-            transform: scaley(0.6); }
-  100% {
-    -webkit-transform: scaley(1);
-            transform: scaley(1); } }
-
-@keyframes line-scale-pulse-out {
-  0% {
-    -webkit-transform: scaley(1);
-            transform: scaley(1); }
-  50% {
-    -webkit-transform: scaley(0.6);
-            transform: scaley(0.6); }
-  100% {
-    -webkit-transform: scaley(1);
-            transform: scaley(1); } }
-
-.line-scale-pulse-out > div {
-  background-color: #D35400;
-  width: 4px;
-  height: 24px;
-  border-radius: 2px;
-  margin: 2px;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  display: inline-block;
-  -webkit-animation: line-scale-pulse-out 0.9s -0.6s infinite cubic-bezier(0.85, 0.25, 0.37, 0.85);
-          animation: line-scale-pulse-out 0.9s -0.6s infinite cubic-bezier(0.85, 0.25, 0.37, 0.85); }
-  .line-scale-pulse-out > div:nth-child(1), .line-scale-pulse-out > div:nth-child(3) {
-    -webkit-animation-delay: -0.2s !important;
-  animation-delay: -0.2s !important; 
-}
-
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
+
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }

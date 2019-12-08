@@ -22,6 +22,7 @@
 </template>
 <script>
 "use strict";
+import "./dropdown.css";
 import SPClickOutside from "../../scripts/clickoutside.js";
 export default {
   directives: {

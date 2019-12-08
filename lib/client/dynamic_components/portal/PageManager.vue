@@ -34,23 +34,13 @@
         <sp-form :form-def="folderForm" :data-object="folderSettings" :errors="folderErrors" form-id="folderForm" 
         save-label="msg_save_folder" :save-callback="saveFolder" :cancel-callback="cancelEdit"></sp-form>
       </div>
-      <div v-else-if="mode == 3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" @click.prevent="mode=0">{{$i18n('msg_home')}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{$i18n('msg_edit_page_metadata')}}</li>
-          </ol>
-        </nav>
+      <div v-else-if="mode == 3" class="card card-body">
+        <div class="h5 mb-4">{{$i18n('msg_edit_page_metadata')}}</div>
         <sp-form :form-def="pageForm" :data-object="pageSettings" :errors="pageErrors" form-id="pageForm" 
         save-label="msg_save_metadata" :save-callback="savePage" :cancel-callback="cancelEdit"></sp-form>
       </div>
-      <div v-else-if="mode == 4">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" @click.prevent="mode=0">{{$i18n('msg_home')}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{$i18n('msg_edit_folder')}}</li>
-          </ol>
-        </nav>
+      <div v-else-if="mode == 4" class="card card-body">
+        <div class="h5 mb-4">{{$i18n('msg_edit_folder')}}</div>
         <sp-form :form-def="folderForm" :data-object="folderSettings" :errors="folderErrors" form-id="folderForm" 
         save-label="msg_save_folder" :save-callback="saveFolder" :cancel-callback="cancelEdit"></sp-form>
       </div>

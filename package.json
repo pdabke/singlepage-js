@@ -1,6 +1,6 @@
 {
   "name": "singlepage-js",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "author": "Padmanabh Dabke",
   "keywords": [
     "portal framework",
@@ -15,7 +15,9 @@
     "singlepage": "./bin/singlepage.js"
   },
   "scripts": {
-    "postinstall": "node ./dev/tools/build_dist.js"
+    "postinstall": "node ./dev/tools/build_dist.js",
+    "buildcss": "sass ./lib/client/scss/bootstrap.scss ./dev/app_minimal/src/www/css/bootstrap.css --no-source-map",
+    "buildsys": "rollup -c -w"
   },
   "repository": {
     "type": "git",
