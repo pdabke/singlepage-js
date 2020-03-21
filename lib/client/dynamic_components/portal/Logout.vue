@@ -11,3 +11,18 @@
 	</div>
   
 </template>
+<script>
+"use strict";
+export default {
+
+  data: function() {
+    return { 
+      messages: {
+        "en": {
+          "msg_logout_message": "You have been logged out."
+        }
+      }
+    }
+  }
+}
+</script>
