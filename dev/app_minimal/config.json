@@ -1,6 +1,14 @@
 {
   "SITE_TITLE": "Singlepage.js Web Site",
   "SITE_AUTHOR": "Padmanabh Dabke",
-  "SITE_KEYWORDS": "Singlepage.js, Vue.js",
-  "SITE_DESCR": "A Website created using Singlepage.js platform."
+  "SITE_KEYWORDS": "Singlepage.js, Vue.js, PWA",
+  "SITE_DESCR": "A Website created using Singlepage.js platform.",
+  "URL_FETCHER": {
+	  "ALLOWED_DOMAINS": ["www.npr.org", "feeds.bbci.co.uk", "www.espn.com", "hnrss.org"]
+  },
+  "CLIENT_CACHE": {
+    "URLFetcher": {
+      "fetch": 900
+    }
+  }
 }
