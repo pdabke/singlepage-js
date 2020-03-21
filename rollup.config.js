@@ -186,18 +186,37 @@ var targets = [
        * CSS is loaded by JS. It does not work if extract is set to true since postcss does not
        * pass the configuration parameters to nanocss in that case. The symptom was seen in 
        * form validation icon positioning, the source is _forms.scss in bootstrap 4.3 source code.
+       * REVERTED CSS EXTRACTION SINCE IT WAS IMPACTING WPA PERFORMANCE. NANOCSS ISSUE
+       * IS NOW FIXED IN SCSS FILE WHERE WE REMOVED 100% Calc()
        */
       postcss({
-        extract: false,
+        extract: true,
         minimize: {
           preset: ['default', {normalizePositions: false}]
         }
       }),
       isWatchMode && livereload({})
 
-      ,terser()
+      
     ]
   },
+  {
+    input: 'dev/app_minimal/src/service_worker.js',
+    output: {
+      format: 'cjs',
+      file: 'dev/dist/client/service_worker.js'
+    },
+    plugins: [
+      replace({
+        __CDN_URL__: config.CDN_URL,
+        __VERSION__: new Date().getTime()
+      }),
+      noderesolve(),
+      commonjs({sourceMap: false}),
+      terser()
+    ]
+  },
+
   {
     input: 'lib/server/core/index.js',
     output: {
@@ -208,7 +227,8 @@ var targets = [
       commonjs({ignore: [ 'conditional-runtime-dependency' ]}),
       json()
       ],
-    external: ['fs', 'path', 'process', 'http', 'https', 'crypto', 'chokidar', 'mustache', 'lru-cache', 'formidable', 'nodemailer', 'mime-types']
+      external: ['fs', 'fs-extra', 'path', 'process', 'http', 'https', 'crypto', 
+      'chokidar', 'mustache', 'lru-cache', 'formidable', 'nodemailer', 'mime-types', 'node-fetch']
   }
 ];
 
