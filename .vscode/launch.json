@@ -21,7 +21,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Singlepage Server",
-      "program": "${workspaceFolder}\\dev\\dist\\bin\\spstart.js"
+      "program": "${workspaceFolder}/lib/server/core/start.js",
     },
     {
       "type": "node",
