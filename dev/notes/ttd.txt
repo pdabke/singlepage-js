@@ -41,3 +41,4 @@ Allow "singlepage build" to specify a different dist directory with a force opti
 revisit components for bootstrap suggestions on accessibility
 Clean up and compress sp.css
 Fix Sidebar.vue code so that it is easy to customize sidebar styling
+Use HTTP 2.0 for serving pages
