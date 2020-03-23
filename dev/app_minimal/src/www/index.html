@@ -17,17 +17,18 @@
     <meta name="apple-mobile-web-app-title" content="{{SITE_TITLE}}">
     <meta name="msapplication-starturl" content="/">
 
-    <link rel="icon" href="favicon.ico">
-    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="/icons/favicon.ico">
+    <link rel="manifest" href="/icons/manifest.json">
     
     <!-- icon in the highest resolution we need it for -->
-    <link rel="icon" sizes="192x192" href="android-chrome-192x192-spicon.png">
+    <link rel="icon" sizes="192x192" href="/icons/android-chrome-192x192-spicon.png">
 
     <!-- reuse same icon for Safari -->
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 
-    <!-- Minimal styles needed for initial layout -->
-    <link rel="stylesheet" href="{{{CDN_URL}}}/sp.css">
+    <!-- Full CSS -->
+    <link rel="stylesheet" href="{{{CDN_URL}}}/lib/spapp.css">
+
 </head>
 
 <body>
@@ -39,7 +40,19 @@
                 </div>
             </div>
     </div>
-    <script src="{{{CDN_URL}}}/lib/spapp.js"></script>
+    <script src="{{{CDN_URL}}}/lib/spapp.js" async></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service_worker.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      }
+    </script>
+    
 </body>
 
 </html>
