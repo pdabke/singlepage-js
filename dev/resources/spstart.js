@@ -10,7 +10,7 @@ const _DIST_DIR = path.resolve(__dirname, '..');
 
 process.env.SP_DIST_DIR = _DIST_DIR;
 var config = {};
-var configFile =  path.resolve(_DIST_DIR, 'config.json');
+var configFile =  path.resolve(_DIST_DIR, 'server', 'resources', 'config.json');
 if (fs.existsSync(configFile)) {
   var content = fs.readFileSync(configFile, 'utf-8');
   config = eval('(' + content + ")");
