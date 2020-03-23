@@ -1,0 +1,212 @@
+/**
+ * Copyright 2019 Padmanabh Dabke. All Rights Reserved.
+ *
+ * Distributed under MIT license
+ * https://opensource.org/licenses/MIT
+ * 
+ */
+
+/* Remove blue outline in Chrome */
+button:focus, a:focus {outline:0;}
+
+/* For file inputs, we prefer the regular css to style it instead of custom bootstrap since that requires
+additional javascript to see the file name. The following style makes it look a little nicer on new
+browsers. */
+.sp-file-form-control {
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 5px;
+}
+  /* Bootstrap overrides */
+.navbar, footer {
+  z-index: 990;
+}
+
+/* Sticky footer styles. Makes sure the footer sticks to the bottom when the page content height is small. */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+}
+
+/* Prevents footer text overlapping with main text when the page height is too
+ * small to accomodate page content. Use sp-center-content-with-footer on
+ * centered content on a page that has footer.
+ */
+.sp-app-with-footer, .sp-centered-content-with-footer {
+  margin-bottom: 90px;
+}
+
+/* The following assumes header height of 60px and footer space of 90px */
+.sp-center-content-with-header-footer {
+  min-height: calc(100vh - 250px)
+}
+
+/* Pages that occupy the entire viewport (e.g. splash page, login/logout etc. */
+
+/* Use this when you know the content can fit on a page. This works universally as 
+* compared to sp-full-viewport that uses vh units and has problems on mobile browsers
+* as 100vh often corresponds to a height that is bigger than the visible part of the
+* Web browser.
+*/
+.sp-full-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 980;
+}
+
+/* Use this when the app content may not fit the screen height Note that we set the
+ * to be 100px less than viewport height to account for mobile browser viewport 
+ * size issues. Mobile browsers return viewport size that is bigger than the initial
+ * visible area. That hides a footer if it is shown. On bigger desktop screens, 
+ * this still looks close to being centered.
+ */
+.sp-full-viewport {
+  min-height: calc(100vh - 100px);
+}
+
+/* Class that centers content horizontally and vertically */
+.sp-center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sp-splash {
+  background: linear-gradient(135deg, #4fe2ec 0%, #dbeef4 100%);
+}
+
+/* End Sticky footer styles */
+
+/* Used to specify unstyled component body, header, etc. */
+.sp-blank {
+  position: relative;
+}
+
+/* Responsive text for splash/landing pages */
+.sp-display-4 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+@media (min-width: 576px) {
+  .sp-display-4 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+}
+
+/* When a page has a single column, it looks odd if it spans the entire width on big screen. The
+following styles limit the display width.
+*/
+
+.sp-one-column-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+}
+
+
+@media (min-width: 768px) {
+  .sp-one-column-container {
+    max-width: 800px;
+  }
+}
+
+.sp-login-card {
+  margin: 0 auto; 
+  width: 100%; 
+  text-align: left;
+  padding: 30px;
+}
+
+@media (min-width: 576px) {
+  .sp-login-card {
+    max-width: 300px;
+    background-color: white;
+    margin-top: 20px;
+  }
+}
+
+.navbar-brand img {
+  height: 30px; margin-bottom: 2px;
+}
+
+.sp-logo {
+  max-height: 30px;
+}
+
+/* Sidebar */
+.sp-sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1090; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s ease-in-out; /* 0.5 second transition effect to slide in the sidenav */
+  opacity: 0.9;
+}
+
+.sp-open {
+  width: 200px;
+}
+
+/* End Sidebar */
+/* Takes away card borders for small displays */
+@media (max-width: 576px) {
+  .sp-card {
+    border: none !important;
+  }
+}
+
+/* Styles for forms */
+.sp-required::after {
+  color: #d35400;
+  content: "*";
+}
+
+.form-check.is-invalid ~ .invalid-feedback, .sp-form-input.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* End styles for forms */
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.slide-leave-active,
+.slide-enter-active {
+  transition: 0.7s;
+}
+.slide-enter {
+  transform: translate(-100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}
+/* End Styles for Loader */
