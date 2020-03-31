@@ -19,12 +19,12 @@
     <div class="sp-component-action-menu" v-if="actions && $root.isEditMode">
       <sp-dropdown class="d-inline-block" :items="actions" align="right">
         <div class="sp-menu-icon">
-          <img :src="$app.config.CDN_URL + '/images/settings.svg'">
+          <img :src="$app.config.CDN_URL + '/icons/settings.svg'">
         </div>
       </sp-dropdown>
       <div v-if="$app.user && $app.user.isSuperadmin"  class="d-inline-block" style="cursor: move;"
         @mousedown="toggleDrag(true)" @mouseup="toggleDrag(false)">
-        <img :src="$app.config.CDN_URL + '/images/drag.svg'" draggable="false">
+        <img :src="$app.config.CDN_URL + '/icons/drag.svg'" draggable="false">
       </div>
     </div>
     <div v-if="title" v-bind:class="headerClass">{{$i18n(title)}}</div>

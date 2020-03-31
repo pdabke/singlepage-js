@@ -20,8 +20,8 @@
     <div v-if="parent" class="te-draggable px-3 py-2 d-flex align-items-center justify-content-between flex-row" handle="true" @dragover="dragOver">
       <span>{{$i18n(node.label)}}</span>
       <span class="d-flex align-items-center">
-        <a href="#" @click.prevent="editNode"><img class="d-block mr-1" :src="$app.config.CDN_URL + '/images/edit.svg'" draggable="false"></a>
-        <a href="#" @click.prevent="deleteNode"><img class="d-block" :src="$app.config.CDN_URL + '/images/delete.svg'" draggable="false"></a>
+        <a href="#" @click.prevent="editNode"><img class="d-block mr-1" :src="$app.config.CDN_URL + '/icons/edit.svg'" draggable="false"></a>
+        <a href="#" @click.prevent="deleteNode"><img class="d-block" :src="$app.config.CDN_URL + '/icons/delete.svg'" draggable="false"></a>
       </span>
     </div>
      <div class="p-2">
@@ -37,8 +37,8 @@
     @dragstart="dragStart" @dragover="dragOver" @drop="drop" @dragend="dragEnd">
     <span class="d-block"><router-link :to="node.path">{{$i18n(node.label)}}</router-link></span>
     <span class="d-flex align-items-center">
-      <a href="#" @click.prevent="editNode"><img class="d-block mr-1" :src="$app.config.CDN_URL + '/images/edit.svg'" draggable="false"></a>
-      <a href="#" @click.prevent="deleteNode"><img class="d-block" :src="$app.config.CDN_URL + '/images/delete.svg'" draggable="false"></a>
+      <a href="#" @click.prevent="editNode"><img class="d-block mr-1" :src="$app.config.CDN_URL + '/icons/edit.svg'" draggable="false"></a>
+      <a href="#" @click.prevent="deleteNode"><img class="d-block" :src="$app.config.CDN_URL + '/icons/delete.svg'" draggable="false"></a>
     </span>
   </div>
 </template>
