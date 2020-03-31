@@ -8,7 +8,7 @@
 
 <template>
     <ul class="navbar-nav mr-auto">
-      <template v-for="link in $root.site.siteDef.pages" >
+      <template v-for="link in topLevelPages($root.site.siteDef.pages)" >
           <sp-dropdown v-if="link.pages" :key="link.path" class="nav-item" :items="link.pages" type="list">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{$i18n(link.label)}}
@@ -87,7 +87,7 @@ export default {
     
     topLevelPages: function(pages) {
       return pages.filter(function(page) {
-        return page.isTopLevel;
+        return page.isTopLevel || (page.pages && page.pages.length > 0);
       });
     }
   }
