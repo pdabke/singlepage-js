@@ -38,12 +38,12 @@ var Create = {
 
     if (options.full) {
       fs.copySync(path.resolve(_SP_HOME, 'dev', 'app_full'), dir);
-      var copyComps = ['App.vue', 'Login.vue', 'Logout.vue'];
-      copyComps.forEach(function(comp) {
-        fs.copyFileSync(path.resolve(_SP_HOME, 'lib', 'client', 'components', comp),
-        path.resolve(dir, 'src', comp));
-
-      });
+      fs.copyFileSync(path.resolve(_SP_HOME, 'lib', 'client', 'components', 'App.vue'),
+        path.resolve(dir, 'src', 'App.vue'));
+      fs.copyFileSync(path.resolve(_SP_HOME, 'lib', 'client', 'dynamic_components', 'portal', 'Login.vue'),
+        path.resolve(dir, 'src', 'Login.vue'));
+      fs.copyFileSync(path.resolve(_SP_HOME, 'lib', 'client', 'dynamic_components', 'portal', 'Logout.vue'),
+        path.resolve(dir, 'src', 'Logout.vue'));
       fs.copyFileSync(path.resolve(_SP_HOME, 'lib', 'client', 'components', 'portal', 'PageNotFound.vue'),
       path.resolve(dir, 'src', 'PageNotFound.vue'));
     }

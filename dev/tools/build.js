@@ -124,6 +124,9 @@ var Build = {
     // Generate lib & CSS
     var watchFiles = await buildLib(_APP_BASE, isProduction, options.isServe, distClientDir, options.compress);
 
+    // Generate lib & CSS
+    var watchFiles2 = await buildServiceWorker(_APP_BASE, isProduction, options.isServe, distClientDir, options.compress);
+
     // Build components
     var compDir = path.resolve(_APP_BASE, 'src', 'components');
     if (!fs.existsSync(compDir)) {
@@ -135,6 +138,18 @@ var Build = {
         await buildComponent(path.resolve(compDir, comp), path.resolve(distClientDir, 'components'),
           comp.substring(0, comp.length - 4), isProduction, options.isServe, options.compress);
       }
+    }
+
+    // Build Login and Logout components if found
+    var loginComp = path.resolve(_APP_BASE, 'src', 'Login.vue');;
+    if (fs.existsSync(loginComp)) {
+      await buildComponent(loginComp, path.resolve(distClientDir, 'spcomponents'),
+          'SpLogin', isProduction, options.isServe, options.compress);
+    }
+    var logoutComp = path.resolve(_APP_BASE, 'src', 'Logout.vue');;
+    if (fs.existsSync(logoutComp)) {
+      await buildComponent(logoutComp, path.resolve(distClientDir, 'spcomponents'),
+          'SpLogout', isProduction, options.isServe, options.compress);
     }
 
     // Extract component metadata for components that can be added by a user to the portal
@@ -257,6 +272,43 @@ async function buildComponent(inputFile, outputDir, outputFile, isProduction, is
   }
 }
 
+async function buildServiceWorker(appBase, isProduction, isServe, distClientDir, compress) {
+  // create a bundle
+  var mainFile = path.resolve(appBase, 'src', 'service_worker.js');
+  if (!fs.existsSync(mainFile)) return;
+  var input = {
+    treeshake: isProduction,
+    input: mainFile,
+    plugins: [
+      replace({
+        __CDN_URL__: _CLIENT_CONFIG.CDN_URL,
+        __VERSION__: new Date().getTime()
+      }),
+      noderesolve(),
+      commonjs({sourceMap: false}),
+      compress && (require('rollup-plugin-terser')).terser()
+    ]
+  };
+
+  var bundle = await rollup.rollup(input);
+  if (isServe) {
+    // generate code in memory
+    const { output } = await bundle.generate({ format: 'cjs', file: 'service_worker.js' });
+    for (const chunkOrAsset of output) {
+      _BUILD_OUTPUT.code[chunkOrAsset.fileName] = chunkOrAsset.code ? chunkOrAsset.code : chunkOrAsset.source.toString();
+    }
+    return bundle.watchFiles;
+  } else {
+    // generate code in dist directory
+    let libFileName = 'service_worker.js';
+    await bundle.write({
+      format: 'cjs',
+      file: path.join(distClientDir, libFileName)
+      //sourcemap: !isProduction
+    });
+  }
+
+}
 async function buildLib(appBase, isProduction, isServe, distClientDir, compress) {
   // create a bundle
   var mainFile = path.resolve(appBase, 'src', 'main.js');
@@ -286,7 +338,7 @@ async function buildLib(appBase, isProduction, isServe, distClientDir, compress)
        * form validation icon positioning, the source is _forms.scss in bootstrap 4.3 source code.
        */
       postcss({
-        extract: false,
+        extract: true,
         minimize: {
           preset: ['default', {normalizePositions: false}]
         }
