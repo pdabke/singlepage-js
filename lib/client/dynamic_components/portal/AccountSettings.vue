@@ -4,22 +4,22 @@
       <h4 class="mb-4">{{$i18n('msg_account_settings')}}</h4>
       <div class="p-3 text-danger">This component is not functional. Implementation will be completed when we add multi-user functionality.</div>
       <sp-tabs transition="fade">
-        <sp-tab-pane title="msg_update_profile">
+        <sp-tab-pane :title="$i18n('msg_update_profile')">
           <div class="card-body">
             <sp-loader :loaded="loaded" service="UserService" method="getProfileInfo" params="{}" 
               :success-cb="updateProfileInfo"></sp-loader>
             <sp-form v-if="loaded" :form-def="profileForm" :data-object="profileData" :errors="profileErrors" 
                 save-label="msg_update" saver-service="UserService" :save-callback="profileSuccess"
-                saver-method="updateProfile" success-message="msg_profile_updated_successfully">
+                saver-method="updateProfile" :success-message="$i18n('msg_profile_updated_successfully')">
             </sp-form>
           </div>
         </sp-tab-pane>
-        <sp-tab-pane title="msg_change_password">
+        <sp-tab-pane :title="$i18n('msg_change_password')">
           <sp-form :form-def="passwordForm" :data-object="passwordInfo" :errors="passwordErrors" 
-              save-label="msg_change_password" saver-service="SessionService" :save-callback="pwSuccess"
-              saver-method="changePassword" success-message="msg_password_changed_successfully"></sp-form>
+              :save-label="$i18n('msg_change_password')" saver-service="SessionService" :save-callback="pwSuccess"
+              saver-method="changePassword" :success-message="$i18n('msg_password_changed_successfully')"></sp-form>
         </sp-tab-pane>
-        <sp-tab-pane title="msg_upload_avatar">
+        <sp-tab-pane :title="$i18n('msg_upload_avatar')">
           <div class="mb-4 mt-4 text-info text-center">{{$i18n('msg_upload_avatar_instructions')}}</div>
           <form class="form-inline justify-content-center mb-4">
               <span class="form-control sp-file-form-control mr-2"><input accept="image/*, gif, jpg, jpeg, png" @change="processAvatarFile" type="file"></span>
@@ -99,13 +99,26 @@ export default {
       profileForm: {},
       profileErrors: {},
       profileData: {},
-      avatarFile: []
+      avatarFile: [],
+      messages: {
+        "en-US": {
+            "msg_update_profile": "Update Profile",
+            "msg_profile_updated_successfully": "Profile updated successfully.",
+            "msg_upload_avatar": "Upload Avatar",
+            "msg_upload_avatar_instructions": "Select an image file (PNG, JPEG, GIF) and click on \"Upload Avatar\" button to set your avatar.",
+            "msg_avatar_upload_successful": "Avatar image uploaded successfully.",
+            "msg_change_password": "Change Password",
+            "msg_password_changed_successfully": "Password changed successfully.",
+            "error_please_select_file": "Please select a file.",
+            "error_avatar_upload_failed": "Sorry! Failed to upload your avatar image.",
+        }
+      }
     };
   },
 
   methods: {
     pwSuccess: function(/*respObj*/) {
-      this.$app.modal.showDialog("Success", "Password changed successfully.");
+      this.$app.modal.showDialog("msg_success", "msg_password_changed_successfully");
       this.passwordInfo.old_password = "";
       this.passwordInfo.new_password = "";
       this.passwordInfo.new_password2 = "";
