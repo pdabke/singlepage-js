@@ -5,12 +5,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
- // SP: Removed reboot, code, grid, dropdown, button-group, breadcrumb, pagination, badge, alerts, progress, toast, tooltip, popover, carousel, spinners
+ // SP: Removed root, reboot, code, grid, dropdown, button-group, input-group, breadcrumb, pagination, badge, alerts, progress, toast, tooltip, popover, carousel, spinners
  // SP: Added spcomponents
 @import "functions";
 @import "variables";
 @import "mixins";
-@import "root";
+// @import "root";
 // @import "reboot";
 @import "type";
 @import "images";
@@ -22,7 +22,7 @@
 @import "transitions";
 // @import "dropdown";
 // @import "button-group";
-@import "input-group";
+// @import "input-group";
 @import "custom-forms";
 @import "nav";
 @import "navbar";
