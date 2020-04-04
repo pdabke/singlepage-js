@@ -34,7 +34,7 @@ export default {
   props: ["feedUrl"],
 
   watch: {
-    feedUrl: function() {
+    feedUrl: function(newf, oldf) {
       this.loadFeed();
     }
   },
@@ -57,7 +57,8 @@ export default {
       ],
       messages: {
         "en-US": {
-          "error_domain_fetch_not_allowed": "Please contact your portal administrator to enable access to the current feed URL domain."
+          "error_domain_fetch_not_allowed": "Please contact your portal administrator to enable access to the current feed URL domain.",
+          "error_failed_to_fetch_url": "Sorry! Could not fetch content from the feed URL."
         }
       }
     };
@@ -73,6 +74,7 @@ export default {
     },
     loadFeed: function() {
       this.loading = true;
+      this.error = null;
       let url = this.feedUrl
         ? this.feedUrl
         : "https://www.npr.org/rss/podcast.php?id=510298";
