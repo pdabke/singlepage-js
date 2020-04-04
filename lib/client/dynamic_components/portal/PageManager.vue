@@ -28,21 +28,29 @@
       </sp-tree-editor>
       <div v-else-if="mode == 1">
         <sp-form :form-def="pageForm" :data-object="pageSettings" :errors="pageErrors" form-id="pageForm" 
-        save-label="msg_create_page" :save-callback="savePage" :cancel-callback="cancelEdit"></sp-form>
+          save-label="msg_create_page" :save-callback="savePage" :cancel-callback="cancelEdit"
+          :messages="messages">
+        </sp-form>
       </div>
       <div v-else-if="mode == 2">
         <sp-form :form-def="folderForm" :data-object="folderSettings" :errors="folderErrors" form-id="folderForm" 
-        save-label="msg_save_folder" :save-callback="saveFolder" :cancel-callback="cancelEdit"></sp-form>
+        save-label="msg_save_folder" :save-callback="saveFolder" :cancel-callback="cancelEdit"
+          :messages="messages">
+        </sp-form>
       </div>
       <div v-else-if="mode == 3" class="card card-body">
         <div class="h5 mb-4">{{$i18n('msg_edit_page_metadata')}}</div>
         <sp-form :form-def="pageForm" :data-object="pageSettings" :errors="pageErrors" form-id="pageForm" 
-        save-label="msg_save_metadata" :save-callback="savePage" :cancel-callback="cancelEdit"></sp-form>
+        save-label="msg_save_metadata" :save-callback="savePage" :cancel-callback="cancelEdit"
+          :messages="messages">
+        </sp-form>
       </div>
       <div v-else-if="mode == 4" class="card card-body">
         <div class="h5 mb-4">{{$i18n('msg_edit_folder')}}</div>
         <sp-form :form-def="folderForm" :data-object="folderSettings" :errors="folderErrors" form-id="folderForm" 
-        save-label="msg_save_folder" :save-callback="saveFolder" :cancel-callback="cancelEdit"></sp-form>
+        save-label="msg_save_folder" :save-callback="saveFolder" :cancel-callback="cancelEdit"
+          :messages="messages">
+        </sp-form>
       </div>
     </div>
   </div>
@@ -75,6 +83,28 @@ export default {
           { name: 'label', label: 'msg_label', type: 'text', required: true},
           { name: 'roles', label: 'msg_access_roles', type: 'select', multiple: true, options: this.$app.constants.ROLES}
         ]
+      },
+      messages: {
+        "en": {
+          "msg_page": "Page",
+          "msg_folder": "Folder",
+          "msg_new_folder": "New Folder",
+          "msg_create_folder": "Create Folder",
+          "msg_save_folder": "Save Folder",
+          "msg_edit_folder": "Edit Folder",
+          "msg_new_page": "New Page",
+          "msg_create_page": "Create Page",
+          "msg_create_new_page": "Create New Page",
+          "msg_edit_page_metadata": "Edit Page Metadata",
+          "msg_path": "Path (Alphanumeric. No Spaces.)",
+          "msg_label": "Label",
+          "msg_layout": "Layout",
+          "msg_top_level": "Top Level",
+          "msg_delete_page": "Delete Page",
+          "error_duplicate_page_path": "Duplicate page path.",
+          "error_invalid_page_path": "Path can only contain alphanumeric characters."
+
+        }
       }
     }
   },
@@ -85,7 +115,7 @@ export default {
     },
 
     siteDefSaveError: function() {
-      this.$app.modal.showErrorDialog("msg_failed_to_save_site_def");
+      this.$app.modal.showErrorDialog("error_failed_to_save_site_def");
     },
 
     validatePath: function(field, fieldValue) {

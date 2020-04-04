@@ -17,6 +17,7 @@
         :save-label="pageAction"
         :save-callback="savePage"
         :cancel-callback="cancelEdit"
+        :messages="messages"
       ></sp-form>
     </div>
     <div v-else class="d-flex align-items-center justify-content-center p-4">
@@ -76,6 +77,16 @@ export default {
           },
           { name: "isTopLevel", label: "msg_top_level", type: "checkbox" }
         ]
+      },
+      messages: {
+        "en-US": {
+          "msg_path": "Path",
+          "msg_label": "Label",
+          "msg_layout": "Layout",
+          "msg_top_level": "Top Level",
+          "msg_create_new_page": "New Page",
+          "msg_create_page": "Create Page"
+        }
       }
     };
   },

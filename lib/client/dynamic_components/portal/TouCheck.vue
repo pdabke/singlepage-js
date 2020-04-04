@@ -12,6 +12,19 @@
 </template>
 <script>
   export default {
+    data: function() {
+      return {
+        messages: {
+          "en": {
+            "msg_agree_to_tou": "By checking this box I agree to abide by the <a href=\"http\"://www.nabh.com/tou.html\">Terms of Use</a>.",
+            "msg_must_agree_to_tou": "You must agree to our Terms of Use by checking the box.",
+            "msg_accept_tou": "Accept Terms of Use",
+            "msg_accept_tou_lead": "Please read the Terms of Use carefully, you may have to scroll to see all of the terms. By clicking the button below, you are accepting the Terms of Use for this Website."
+
+          }
+        }
+      }
+    },
     methods: {
       acceptTou: function() {
         this.$app.rpc.invoke("UserService", "handleLoginPrereqsResponse", 

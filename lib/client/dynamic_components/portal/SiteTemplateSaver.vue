@@ -50,6 +50,19 @@ export default {
             type: "checkbox"
           }
         ]
+      },
+
+      messages: {
+        "en": {
+          "msg_site_name": "Site Name",
+          "msg_overwrite_existing_site": "Overwrite Existing Site",
+          "msg_new_site": "New Site",
+          "msg_open_site": "Open Site",
+          "msg_save_site_as": "Save Site As",
+          "msg_manage_sites": "Manage Sites",
+          "msg_site_saved": "Site saved.",
+          "error_site_exists": "Site with the same name exists."
+        }
       }
     };
   },

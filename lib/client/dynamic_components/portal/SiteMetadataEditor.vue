@@ -109,13 +109,14 @@ export default {
       },
 
       messages: {
-        "en-US": {
+        "en": {
           "msg_site_config": "Site Configuration",
+          "msg_site_config_info": "Enter parameter name value pairs in the form below and click 'Save'. You can access these parameters in your components via $app.site.siteData.config[param_name]",
           "msg_param_name": "Parameter name",
           "msg_param_value": "Parameter value",
           "msg_site_config_saved": "Site configuration saved successfully",
-          "error_site_config_save": "Sorry! There was an error in saving site configuraion.",
-          "msg_site_config_info": "Enter parameter name value pairs in the form below and click 'Save'. You can access these parameters in your components via $app.site.siteData.config[param_name]"
+          "msg_site_metadata_success": "Site metadata saved successfully",
+          "error_site_config_save": "Sorry! There was an error in saving site configuraion."
         }
       }
     };
