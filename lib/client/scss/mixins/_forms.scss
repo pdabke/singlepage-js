@@ -59,7 +59,12 @@
         padding-right: $input-height-inner;
         background-image: $icon;
         background-repeat: no-repeat;
-        background-position: center right $input-height-inner-quarter;
+        // SP: nanocss compression does a wrong transformation of background-position if
+        // right center occurs with calc. There is a way to bypass it by setting
+        // normalizePositions to false but when postcss config externelizes CSS, it does
+        // not pass any arguments to nanocss. So replaced offset from calc to .25rem
+        // background-position: center right $input-height-inner-quarter;
+        background-position: right .25rem center;
         background-size: $input-height-inner-half $input-height-inner-half;
       }
 
