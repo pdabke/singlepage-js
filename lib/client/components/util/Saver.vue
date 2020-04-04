@@ -23,6 +23,17 @@ export default {
   data: function() {
     return {
       saving: false
+      /*
+      messages: {
+        "en": {
+          "msg_update_outbox_entry": "Update Outbox Entry",
+          "msg_save_in_outbox": "Save in Outbox",
+          "msg_work_saved_in_outbox": "Content saved in outbox.",
+          "msg_no_title": "No Title",
+          "msg_no_desc": "No Description"
+        }
+      }
+      */
     };
   },
   methods: {
@@ -80,7 +91,7 @@ export default {
         this.saving = false;
         this.redirectToLogin();
       } else if (status == this.$app.constants.RETURN_ACCESS_DENIED) {
-        this.$app.modal.showErrorDialog('msg_access_denied');
+        this.$app.modal.showErrorDialog('error_access_denied');
       } else {
         this.saving = false;
         // We have to call showErrorDialog with localized message argument for component
