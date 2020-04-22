@@ -143,3 +143,25 @@ Release 0.4.0
   templates
 - Added "update" option to singlepage command that updates Singlepage runtime
   libraries in app's lib directory to the current version 
+
+Release 0.5.0
+- Singlepage.js is now a Progressive Web App (PWA)
+- Demo application now passes chrome audits with scores above 95%
+- Login and Logout components are now dynamically loaded
+- Reorganized icon files, all of them are now in "icons" directory
+- Reverted JS loading of CSS to external file since it was taking longer
+- Fixed CSS source styles to work around nanocss bug
+- Changed config param name for allowed domains in url_fetcher.js to 
+  ALLOWED_DOMAINS
+- Added default config for ALLOWED_DOMAINS
+- Moved some i18n messages to individual Vue components to reduce the message
+  file size
+- Reduced CSS file size by removing input-group and root blocks from bootstrap
+- Fixed internationalization in AccountSettings.vue
+- Fixed a bug in RSSViewer.vue that was causing the error message to be seen
+  while loading feed
+- Fixed a bug in SiteLinks.vue that was causing all page menu titles to be
+  displayed (Not just the top level)
+- Removed 'sp-lead' class from sp.css
+- Corrected config.json path in spstart.js
+- Updated package dependencies to eliminate vulnerabilities and warnings
