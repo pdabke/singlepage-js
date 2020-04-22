@@ -14,7 +14,6 @@
 const VERSION = __VERSION__;
 const CACHE_NAME = 'singlepage-cache-' + VERSION;
 self.addEventListener('install', function(event) {
-  console.log('Installing service worker version ' + VERSION);
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
       return cache.addAll(
@@ -31,14 +30,11 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener("activate", function(event) {
-  console.log('Activating service worker version ' + VERSION);
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
-          console.log('Found cache ' + cacheName);
           if (CACHE_NAME !== cacheName &&  cacheName.startsWith("singlepage-cache")) {
-            console.log("Deleting cache " + cacheName);
             return caches.delete(cacheName);
           }
         })
