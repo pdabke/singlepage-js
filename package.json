@@ -38,7 +38,7 @@
     "lru-cache": "^5.1.1",
     "mime-types": "^2.1.24",
     "mustache": "^3.0.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "nodemailer": "^6.3.0",
     "parse5": "^5.1.0",
     "rollup": "^1.17.0",
