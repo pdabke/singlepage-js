@@ -196,6 +196,8 @@ var Build = {
     // app definition file
     if (!options.isServe) {
       fs.copyFileSync(path.resolve(_APP_BASE, 'server', 'app.json'), path.resolve(distServerDir, 'app.json'));
+      console.log("Distribution created in directory " + distDir);
+      console.log("You can test your application by running spstart.js in " + path.resolve(distDir, 'bin'));
     }
     return _BUILD_OUTPUT;
   },

@@ -186,6 +186,8 @@ var targets = [
        * CSS is loaded by JS. It does not work if extract is set to true since postcss does not
        * pass the configuration parameters to nanocss in that case. The symptom was seen in 
        * form validation icon positioning, the source is _forms.scss in bootstrap 4.3 source code.
+       */
+      /*
        * REVERTED CSS EXTRACTION SINCE IT WAS IMPACTING WPA PERFORMANCE. NANOCSS ISSUE
        * IS NOW FIXED IN SCSS FILE WHERE WE REMOVED 100% Calc()
        */
@@ -221,7 +223,8 @@ var targets = [
     input: 'lib/server/core/index.js',
     output: {
     format: 'cjs',
-    file: 'dev/dist/lib/spserver.js'
+      file: 'dev/dist/lib/spserver.js',
+      exports: 'default'
     },
     plugins: [
       commonjs({ignore: [ 'conditional-runtime-dependency' ]}),

@@ -118,7 +118,18 @@ var targets = [
     },
     output: {
       format: 'cjs',
-      file: path.resolve(distDir, 'spserver.js')
+      file: path.resolve(distDir, 'spserver.js'),
+      /* Added exports: default to remove the following warning:
+
+      Entry module "..\..\..\..\..\..\..\Projects\singlepage-js\lib\server\core\index.js"
+       is implicitly using "default" export mode, which means for CommonJS output that 
+       its default export is assigned to "module.exports". For many tools, such CommonJS
+        output will not be interchangeable with the original ES module. If this is 
+        intended, explicitly set "output.exports" to either "auto" or "default", otherwise
+         you might want to consider changing the signature of 
+         \..\Projects\singlepage-js\lib\server\core\index.js" to use named exports only.
+*/
+      exports: 'default'  
     }
   }
 
