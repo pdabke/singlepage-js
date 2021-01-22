@@ -165,3 +165,14 @@ Release 0.5.0
 - Removed 'sp-lead' class from sp.css
 - Corrected config.json path in spstart.js
 - Updated package dependencies to eliminate vulnerabilities and warnings
+
+Release 5.0.1
+- Updated dependencies to their latest available versions except rollup-vue
+  (the latest version seems to work only with Vue 3.x), postcss (vue 
+  template compiler produces deprecation warning for postcss plugin)
+- Replaced dropdown.css and nav.css with corresponding scss versions
+- Added "exports: default" option to the output section of rollup.config.js
+  and build scripts to prevent a warning from latest roller version about
+  compatibility between commonjs and ES6
+- singlepage build command now prints a helpful message about the location of 
+  dist directory and run script
